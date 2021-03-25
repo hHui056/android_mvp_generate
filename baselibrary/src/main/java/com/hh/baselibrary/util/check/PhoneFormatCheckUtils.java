@@ -3,6 +3,11 @@ package com.hh.baselibrary.util.check;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Create By hHui on 2021年3月25日15:24
+ * <p>
+ * 手机号校验工具
+ */
 public class PhoneFormatCheckUtils {
     /**
      * ^ 匹配输入字符串开始的位置

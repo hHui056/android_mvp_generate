@@ -32,6 +32,12 @@ public class ZipUtils {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
 
+    /**
+     * @param resFiles    待压缩的文件列表
+     * @param zipFilePath 压缩文件 xxxxx.zip
+     * @param callback    回调
+     * @throws IOException
+     */
     public static void zipFiles(final Collection<File> resFiles, final String zipFilePath, final ZipFileCallback callback) throws IOException {
 
         new Thread(new Runnable() {
@@ -71,7 +77,6 @@ public class ZipUtils {
     public static boolean zipFiles(Collection<File> resFiles, File zipFile, String comment) throws IOException {
         if (resFiles != null && zipFile != null) {
             ZipOutputStream zos = null;
-
             boolean var6;
             try {
                 zos = new ZipOutputStream(new FileOutputStream(zipFile));

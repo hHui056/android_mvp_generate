@@ -1,13 +1,11 @@
 package com.hh.baselibrary.util.check;
 
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 /**
  * Create By hHui on 2018/12/3
+ * <p>
+ * 字符串校验工具
  */
-
 
 public class StringUtils {
 

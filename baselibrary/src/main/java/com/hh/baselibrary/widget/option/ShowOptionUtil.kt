@@ -60,7 +60,7 @@ class ShowOptionUtil(val context: Context) {
     }
 
 
-    fun getShowString(obj: Any): String? {
+    private fun getShowString(obj: Any): String? {
         try {
             val fieldList = obj.javaClass.declaredFields.toList()
             fieldList.forEach {

@@ -63,6 +63,12 @@ object FileUtils1 {
         }
     }
 
+    /**
+     * 保存字符串到文件
+     *
+     * @param content 字符串内容
+     * @param target 目标文件
+     */
     @JvmStatic
     fun saveString2File(
         content: String,
@@ -83,6 +89,10 @@ object FileUtils1 {
         }
     }
 
+    /**
+     * 将文件内容读到字符串
+     * @param input 目标文件路径
+     */
     @JvmStatic
     fun readFile2String(input: String, onError: (Exception) -> Unit = { throw it }): String {
         return try {
@@ -94,6 +104,10 @@ object FileUtils1 {
         }
     }
 
+    /**
+     * 图片转base64数据
+     * @param path 图片地址
+     */
     @JvmStatic
     fun imageToBase64(path: String): String? {
         if (TextUtils.isEmpty(path)) {
@@ -122,7 +136,7 @@ object FileUtils1 {
     }
 
     /**
-     * 文件转[ByteArray]
+     * 文件转byte数组[ByteArray]
      */
     @JvmStatic
     fun fileToByteArray(file: File): ByteArray? {

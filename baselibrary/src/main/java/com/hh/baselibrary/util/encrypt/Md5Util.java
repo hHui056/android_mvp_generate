@@ -7,6 +7,12 @@ import java.security.MessageDigest;
  */
 public class Md5Util {
 
+    /**
+     * MD5加密
+     *
+     * @param dataStr
+     * @return
+     */
     public static String encrypt(String dataStr) {
         try {
             MessageDigest m = MessageDigest.getInstance("MD5");

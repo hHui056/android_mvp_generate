@@ -15,8 +15,8 @@ public final class BeanMapper {
     /**
      * throws InstantiationException, IllegalAccessException
      *
-     * @param source
-     * @param targetClazz
+     * @param source      原对象
+     * @param targetClazz 目标类
      * @param <T>
      * @param <R>
      * @return
