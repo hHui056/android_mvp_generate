@@ -2,35 +2,42 @@ package com.hh.baselibrary.widget;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.hh.baselibrary.widget.ios.DialogStyle;
+import com.hh.baselibrary.widget.ios.IosAlertDialog;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class MyAlertDialog {
     private Context mContext;
-    private SweetAlertDialog alertDialog;
-
+    private SweetAlertDialog sweetAlertDialog;
+    private IosAlertDialog iosAlertDialog;
     private LoadingDialog processDialog;
+    //dialog样式
+    private DialogStyle dialogStyle = DialogStyle.SweetDialog;
 
     public MyAlertDialog(Context activity) {
         mContext = activity;
     }
 
-    public interface AlertClickBack {
-        void onConfirm();
-
-        void onCancel();
+    public MyAlertDialog(Context activity, DialogStyle dialogStyle) {
+        mContext = activity;
+        this.dialogStyle = dialogStyle;
     }
 
-    public interface CancleClickBask {
-        void onCancel();
+    public DialogStyle getDialogStyle() {
+        return dialogStyle;
+    }
+
+    public void setDialogStyle(DialogStyle dialogStyle) {
+        this.dialogStyle = dialogStyle;
     }
 
     public void showDialogLoading(String message) {
-        if (alertDialog != null && alertDialog.isShowing()) {
-            closeDialogLoading();
-        }
+        closeAllDialog();
         if (processDialog == null) {
             processDialog = new LoadingDialog();
             processDialog.init(mContext);
@@ -53,8 +60,20 @@ public class MyAlertDialog {
         }
     }
 
-    public void dissmisDialog() {
-        closeDialogLoading();
+    private void closeAllDialog() {
+        if (processDialog != null && processDialog.isShowing()) {
+            processDialog.closeProgress();
+        }
+        if (sweetAlertDialog != null && sweetAlertDialog.isShowing()) {
+            sweetAlertDialog.dismiss();
+        }
+        if (iosAlertDialog != null && iosAlertDialog.isShowing()) {
+            iosAlertDialog.dismiss();
+        }
+    }
+
+    public void dismissDialog() {
+        closeAllDialog();
     }
 
     /**
@@ -63,14 +82,17 @@ public class MyAlertDialog {
      * @param msg
      */
     public void alertMsg(String msg) {
-        if (processDialog != null && processDialog.isShowing()) {
-            processDialog.closeProgress();
+        closeAllDialog();
+        if (dialogStyle == DialogStyle.IOS) {
+            iosAlertDialog = new IosAlertDialog(mContext).builder().setMsg(msg);
+            iosAlertDialog.show();
+        } else if (dialogStyle == DialogStyle.SweetDialog) {
+            if (sweetAlertDialog != null && sweetAlertDialog.isShowing()) {
+                closeDialogLoading();
+            }
+            sweetAlertDialog = new SweetAlertDialog(mContext, SweetAlertDialog.NORMAL_TYPE).setTitleText(msg).setContentText("");
+            sweetAlertDialog.show();
         }
-        if (alertDialog != null && alertDialog.isShowing()) {
-            closeDialogLoading();
-        }
-        alertDialog = new SweetAlertDialog(mContext, SweetAlertDialog.NORMAL_TYPE).setTitleText(msg).setContentText("");
-        alertDialog.show();
     }
 
     /**
@@ -79,14 +101,14 @@ public class MyAlertDialog {
      * @param msg
      */
     public void alertSuccessMsg(String msg) {
-        if (processDialog != null && processDialog.isShowing()) {
-            processDialog.closeProgress();
+        closeAllDialog();
+        if (dialogStyle == DialogStyle.IOS) {
+            iosAlertDialog = new IosAlertDialog(mContext).builder().setMsg(msg);
+            iosAlertDialog.show();
+        } else {
+            sweetAlertDialog = new SweetAlertDialog(mContext, SweetAlertDialog.SUCCESS_TYPE).setTitleText(msg).setContentText("");
+            sweetAlertDialog.show();
         }
-        if (alertDialog != null && alertDialog.isShowing()) {
-            closeDialogLoading();
-        }
-        alertDialog = new SweetAlertDialog(mContext, SweetAlertDialog.SUCCESS_TYPE).setTitleText(msg).setContentText("");
-        alertDialog.show();
     }
 
     /**
@@ -96,14 +118,14 @@ public class MyAlertDialog {
      * @param msg
      */
     public void alertWaringMsg(String title, String msg) {
-        if (processDialog != null && processDialog.isShowing()) {
-            processDialog.closeProgress();
+        closeAllDialog();
+        if (dialogStyle == DialogStyle.IOS) {
+            iosAlertDialog = new IosAlertDialog(mContext).builder().setMsg(msg);
+            iosAlertDialog.show();
+        } else {
+            sweetAlertDialog = new SweetAlertDialog(mContext, SweetAlertDialog.WARNING_TYPE).setTitleText(title).setContentText(msg);
+            sweetAlertDialog.show();
         }
-        if (alertDialog != null && alertDialog.isShowing()) {
-            closeDialogLoading();
-        }
-        alertDialog = new SweetAlertDialog(mContext, SweetAlertDialog.WARNING_TYPE).setTitleText(title).setContentText(msg);
-        alertDialog.show();
     }
 
     /**
@@ -113,14 +135,15 @@ public class MyAlertDialog {
      * @param msg
      */
     public void alertErrorMsg(String title, String msg) {
-        if (processDialog != null && processDialog.isShowing()) {
-            processDialog.closeProgress();
+        closeAllDialog();
+        if (dialogStyle == DialogStyle.IOS) {
+            iosAlertDialog = new IosAlertDialog(mContext).builder().setTitle(title)
+                    .setMsg(msg);
+            iosAlertDialog.show();
+        } else {
+            sweetAlertDialog = new SweetAlertDialog(mContext, SweetAlertDialog.ERROR_TYPE).setTitleText(title).setContentText(msg);
+            sweetAlertDialog.show();
         }
-        if (alertDialog != null && alertDialog.isShowing()) {
-            closeDialogLoading();
-        }
-        alertDialog = new SweetAlertDialog(mContext, SweetAlertDialog.ERROR_TYPE).setTitleText(title).setContentText(msg);
-        alertDialog.show();
     }
 
     /**
@@ -130,33 +153,55 @@ public class MyAlertDialog {
      * @param msg
      * @param callBack
      */
-    public void alertOption(String title, String msg, final AlertClickBack callBack) {
-        if (processDialog != null && processDialog.isShowing()) {
-            processDialog.closeProgress();
+    public void alertOption(String title, String msg, final AlertClickBack callBack, String cancel, String sure) {
+        closeAllDialog();
+        if (dialogStyle == DialogStyle.IOS) {
+            iosAlertDialog = new IosAlertDialog(mContext).builder().setMsg(msg).setTitle(title).setPositiveButton(sure, new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    iosAlertDialog.dismiss();
+                    callBack.onConfirm();
+                }
+            }).setNegativeButton(cancel, new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    iosAlertDialog.dismiss();
+                    callBack.onCancel();
+                }
+            });
+            iosAlertDialog.show();
+        } else {
+            sweetAlertDialog = new SweetAlertDialog(mContext, SweetAlertDialog.NORMAL_TYPE)
+                    .setTitleText(title).setContentText(msg)
+                    .showCancelButton(true)
+                    .setCancelText(cancel)
+                    .setConfirmText(sure)
+                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sweetAlertDialog) {
+                            MyAlertDialog.this.sweetAlertDialog.dismissWithAnimation();
+                            callBack.onConfirm();
+                        }
+                    })
+                    .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sweetAlertDialog) {
+                            MyAlertDialog.this.sweetAlertDialog.dismissWithAnimation();
+                            callBack.onCancel();
+                        }
+                    });
+            sweetAlertDialog.show();
         }
-        if (alertDialog != null && alertDialog.isShowing()) {
-            closeDialogLoading();
-        }
-        alertDialog = new SweetAlertDialog(mContext, SweetAlertDialog.NORMAL_TYPE)
-                .setTitleText(title).setContentText(msg)
-                .showCancelButton(true)
-                .setCancelText("取消")
-                .setConfirmText("确定")
-                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                    @Override
-                    public void onClick(SweetAlertDialog sweetAlertDialog) {
-                        alertDialog.dismissWithAnimation();
-                        callBack.onConfirm();
-                    }
-                })
-                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                    @Override
-                    public void onClick(SweetAlertDialog sweetAlertDialog) {
-                        alertDialog.dismissWithAnimation();
-                        callBack.onCancel();
-                    }
-                });
-        alertDialog.show();
+
     }
 
+    public interface AlertClickBack {
+        void onConfirm();
+
+        void onCancel();
+    }
+
+    public interface CancelClickBask {
+        void onCancel();
+    }
 }
