@@ -1,4 +1,4 @@
-package com.hh.baselibrary.util;
+package com.hh.baselibrary.util.encrypt;
 
 import java.security.MessageDigest;
 

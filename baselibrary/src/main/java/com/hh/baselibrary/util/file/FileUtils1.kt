@@ -1,4 +1,4 @@
-package com.hh.baselibrary.http
+package com.hh.baselibrary.util.file
 
 import android.text.TextUtils
 import android.util.Base64
@@ -12,7 +12,7 @@ import java.nio.charset.Charset
 /**
  *Create By hHui on 2018/10/11
  */
-object FileUtils {
+object FileUtils1 {
     /**
      * 保存一个输入流到文件中。
      * @param input 输入字节流
@@ -20,7 +20,11 @@ object FileUtils {
      * @return true 操作成功
      */
     @JvmStatic
-    fun saveFile(input: InputStream, target: File, onError: (Exception) -> Unit = { throw it }): Boolean {
+    fun saveFile(
+        input: InputStream,
+        target: File,
+        onError: (Exception) -> Unit = { throw it }
+    ): Boolean {
         return try {
             if (!target.exists()) {
                 target.createNewFile()
@@ -60,7 +64,11 @@ object FileUtils {
     }
 
     @JvmStatic
-    fun saveString2File(content: String, target: File, onError: (Exception) -> Unit = { throw it }): Boolean {
+    fun saveString2File(
+        content: String,
+        target: File,
+        onError: (Exception) -> Unit = { throw it }
+    ): Boolean {
         return try {
             if (!target.exists()) {
                 target.createNewFile()

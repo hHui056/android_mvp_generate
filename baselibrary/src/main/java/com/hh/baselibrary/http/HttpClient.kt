@@ -1,5 +1,6 @@
 package com.hh.baselibrary.http
 
+import com.hh.baselibrary.util.file.FileUtils1
 import io.reactivex.Observable
 import okhttp3.MediaType
 import okhttp3.MultipartBody
@@ -51,7 +52,7 @@ class HttpClient {
     fun getFile(url: String, targetFile: File): Observable<File> {
         val getMethod = HttpManager.createService(iCls = IGetMethod::class.java)
         return getMethod.getFile(url).map {
-            FileUtils.saveFile(it.byteStream(), targetFile)
+            FileUtils1.saveFile(it.byteStream(), targetFile)
             return@map targetFile
         }.doOnSubscribe { HttpManager.manage(it) }
     }
