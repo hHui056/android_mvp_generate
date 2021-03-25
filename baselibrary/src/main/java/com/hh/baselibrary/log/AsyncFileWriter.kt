@@ -1,5 +1,6 @@
 package com.hh.baselibrary.log
 
+import android.annotation.SuppressLint
 import com.hh.baselibrary.async.RxBus
 import io.reactivex.schedulers.Schedulers
 import java.io.File
@@ -9,6 +10,7 @@ import java.io.File
  *
  * Created by hHui on 2018/4/4.
  */
+@SuppressLint("CheckResult")
 class AsyncFileWriter(private val file: File) {
     private var rxBus: RxBus
 

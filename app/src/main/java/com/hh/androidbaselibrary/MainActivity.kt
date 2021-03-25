@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
 
         show.setOnClickListener {
             val list = ArrayList<Person>()
-
             for (i in 0..10) {
                 list.add(Person("李$i", 0))
             }
