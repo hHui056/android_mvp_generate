@@ -7,6 +7,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
+import android.os.Build;
 import android.text.TextUtils;
 
 import java.io.IOException;
@@ -135,5 +136,25 @@ public class ApkUtils {
         } catch (Exception e) {
         }
         return 0;
+    }
+
+    public static String getVersionName(Context context) {
+        try {
+            String pkName = context.getPackageName();
+            String versionCode = context.getPackageManager()
+                    .getPackageInfo(pkName, 0).versionName;
+            return versionCode;
+        } catch (Exception e) {
+        }
+        return "";
+    }
+
+    /**
+     * 获取android版本号
+     *
+     * @return
+     */
+    public static String getAndroidVersion() {
+        return Build.VERSION.RELEASE;
     }
 }

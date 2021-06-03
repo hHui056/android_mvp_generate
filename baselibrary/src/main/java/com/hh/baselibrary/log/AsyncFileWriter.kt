@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import com.hh.baselibrary.async.RxBus
 import io.reactivex.schedulers.Schedulers
 import java.io.File
+import java.text.SimpleDateFormat
+import java.util.*
 
 /**
  * 如果文件不存在，新建文件，如果文件存在，追加。
@@ -13,6 +15,14 @@ import java.io.File
 @SuppressLint("CheckResult")
 class AsyncFileWriter(private val file: File) {
     private var rxBus: RxBus
+
+    private val nowDay: String
+        @SuppressLint("SimpleDateFormat")
+        get() {
+            val date = Date()
+            val sdf = SimpleDateFormat("yyyy_MM_dd")
+            return sdf.format(date)
+        }
 
     init {
         if (!file.exists()) {
@@ -25,9 +35,11 @@ class AsyncFileWriter(private val file: File) {
 
         rxBus = RxBus.newInstance
         rxBus.register(this, Data::class.java).observeOn(Schedulers.newThread()).subscribe({
+            val logFile = File(file.absolutePath, "$nowDay.log")
+            if (!logFile.exists()) logFile.createNewFile()
             when (it.type) {
-                Type.Append -> file.appendText(it.content)
-                Type.AppendLine -> file.appendText("${it.content}\n")
+                Type.Append -> logFile.appendText(it.content)
+                Type.AppendLine -> logFile.appendText("${it.content}\n")
             }
         }, {
             Logger.dft().e(LogTag.Utils, it.toString())

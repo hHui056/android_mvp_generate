@@ -8,6 +8,47 @@
         <!-- 指定消失的动画xml  -->
     </style>
 
+    <style name="TextNormalStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/normalTextSize</item>
+    </style>
+
+    <style name="TextBigStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/bigTextSize</item>
+    </style>
+
+    <style name="TextSmallStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/smallTextSize</item>
+    </style>
+
+    <declare-styleable name="TitleView">
+        <attr name="title" format="string" />
+        <attr name="isSupportBack" format="boolean" />
+        <attr name="rightImg" format="reference" />
+        <attr name="titleRightText" format="string" />
+    </declare-styleable>
+    <declare-styleable name="TableView">
+        <attr name="table" format="string" />
+        <attr name="normalImg" format="reference" />
+        <attr name="choiceImg" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="MyEditText">
+        <attr name="hint" format="string" />
+        <attr name="leftImage" format="reference" />
+        <attr name="rightImage" format="reference" />
+        <attr name="rightText" format="string" />
+        <attr name="isNumber" format="boolean" />
+        <attr name="isPassword" format="boolean" />
+        <attr name="maxSize" format="integer" />
+    </declare-styleable>
     <!-- my loading dialog -->
     <style name="MyDialogStyle">
         <item name="android:windowBackground">@android:color/transparent</item>

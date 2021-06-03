@@ -754,6 +754,11 @@ public final class FileUtils {
         }
     }
 
+    /**
+     * 获取文件扩展名
+     * @param file
+     * @return
+     */
     public static String getFileExtension(File file) {
         return file == null ? null : getFileExtension(file.getPath());
     }
@@ -845,4 +850,5 @@ public final class FileUtils {
         File file = new File(context.getFilesDir(), "pic.jpg");
         return file;
     }
+
 }

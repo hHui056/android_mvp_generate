@@ -1,7 +1,6 @@
 package com.hh.baselibrary.util;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
+import com.alibaba.fastjson.JSON;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -23,25 +22,8 @@ public final class BeanMapper {
      */
     public static <T, R> R map(T source, Class<R> targetClazz) {
         try {
-            R target = targetClazz.newInstance();
-            Class sourceClazz = source.getClass();
-
-            Field[] sourceFields = sourceClazz.getDeclaredFields();
-            Field[] targetFields = target.getClass().getDeclaredFields();
-            for (Field sourceField : sourceFields) {
-                sourceField.setAccessible(true);
-                for (Field targetField : targetFields) {
-                    if (targetField.getName().equals(sourceField.getName()) && targetField.getType() == sourceField.getType()) {
-                        int mod = targetField.getModifiers();
-                        if (Modifier.isStatic(mod) || Modifier.isFinal(mod)) {
-                            continue;
-                        }
-                        targetField.setAccessible(true);
-                        targetField.set(target, sourceField.get(source));
-                        break;
-                    }
-                }
-            }
+            String sourceStr = JSON.toJSONString(source);
+            R target = JSON.parseObject(sourceStr, targetClazz);
             return target;
         } catch (Exception e) {
             return null;

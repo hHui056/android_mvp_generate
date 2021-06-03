@@ -4,11 +4,11 @@ import java.io.File
 import java.util.concurrent.atomic.AtomicReference
 
 /**
-*Create By hHui on 2018/4/4
-*/
+ *Create By hHui on 2018/4/4
+ */
 class Logger private constructor() {
 
-    private val TAG = "pj_log: "  //所有Log前添加TAG，方便赛选
+    private var TAG = "pj_log: "  //所有Log前添加TAG，方便赛选
 
     enum class Type {
         Logcat, File
@@ -34,6 +34,7 @@ class Logger private constructor() {
         const val ERROR: Int = 4
         private var logger: AtomicReference<Logger> = AtomicReference()
         private lateinit var logType: Type
+
         /**
          * 初始化
          */
@@ -42,6 +43,7 @@ class Logger private constructor() {
             if (this.logger.get() == null) {
                 logType = type
                 val logger = Logger(type, level, file)
+                if (logType == Type.File) logger.TAG = ""
                 this.logger = AtomicReference(logger)
             }
         }

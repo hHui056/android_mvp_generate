@@ -12,7 +12,8 @@ import java.lang.ref.WeakReference
 @SuppressLint("ApplySharedPref")
 class SpUtil(spName: String, mcontext: WeakReference<Context>) {
 
-    private val sp: SharedPreferences = mcontext.get()!!.getSharedPreferences(spName, Context.MODE_PRIVATE)
+    private val sp: SharedPreferences =
+        mcontext.get()!!.getSharedPreferences(spName, Context.MODE_PRIVATE)
 
     /**
      * SP中写入String
@@ -43,8 +44,8 @@ class SpUtil(spName: String, mcontext: WeakReference<Context>) {
      * @return 存在返回对应值，不存在返回默认值`defaultValue`
      */
     @JvmOverloads
-    fun getString(key: String, defaultValue: String = ""): String? {
-        return sp.getString(key, defaultValue)
+    fun getString(key: String, defaultValue: String = ""): String {
+        return if (sp.getString(key, defaultValue) == null) defaultValue else sp.getString(key,defaultValue)!!
     }
 
     /**
@@ -208,7 +209,10 @@ class SpUtil(spName: String, mcontext: WeakReference<Context>) {
      * @return 存在返回对应值，不存在返回默认值`defaultValue`
      */
     @JvmOverloads
-    fun getStringSet(key: String, defaultValue: Set<String> = emptySet<String>()): MutableSet<String>? {
+    fun getStringSet(
+        key: String,
+        defaultValue: Set<String> = emptySet<String>()
+    ): MutableSet<String>? {
         return sp.getStringSet(key, defaultValue)
     }
 
@@ -267,6 +271,7 @@ class SpUtil(spName: String, mcontext: WeakReference<Context>) {
         lateinit var instance: SpUtil
 
         private val SP_UTILS_MAP = SimpleArrayMap<String, SpUtil>()
+
         /**
          * 获取SP实例
 

@@ -1,6 +1,6 @@
 package com.hh.baselibrary.http
 
-import com.google.gson.Gson
+import com.alibaba.fastjson.JSON
 
 
 /**
@@ -9,10 +9,14 @@ import com.google.gson.Gson
  */
 
 fun <T> T.toJsonString(): String {
-    return Gson().toJson(this)
+    return JSON.toJSONString(this)
+}
+
+fun <T> T.toJsonStringWithDateFormat(dataFormat: String = "yyyy-MM-dd HH:mm:ss"): String {
+    return JSON.toJSONStringWithDateFormat(this, dataFormat)
 }
 
 fun <T> String.toModel(type: Class<T>): T {
-    return Gson().fromJson(this, type)
+    return JSON.parseObject(this, type)
 }
 

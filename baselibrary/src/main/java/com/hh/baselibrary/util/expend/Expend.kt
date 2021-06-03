@@ -25,6 +25,11 @@ fun Date.toShow(type: DateType = DateType.SECOND): String {
     }
 }
 
+@SuppressLint("SimpleDateFormat")
+fun Date.toFileName(): String {
+    return SimpleDateFormat("yyyy_MM_dd_HH_mm_ss").format(this)
+}
+
 //字符串转时间
 @Throws
 @SuppressLint("SimpleDateFormat")
@@ -37,6 +42,11 @@ fun String.toDate(type: DateType = DateType.SECOND): Date {
         DateType.MINUTE -> SimpleDateFormat("yyyy-MM-dd HH:mm").parse(this)
         DateType.SECOND -> SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(this)
     }
+}
+
+
+fun String?.toShow(): String {
+    return if (this == null) "" else this!!
 }
 
 //获取输入框字符串 未输入返回null
@@ -81,9 +91,15 @@ fun EditText.clear() {
 }
 
 //设置Edittext输入框值
-fun EditText.text(content: String) {
-    this.setText(content)
-    this.setSelection(content.length)
+fun EditText.showText(content: Any?) {
+    if (content != null) {
+        val a = content.toString()
+        this.setText(a)
+        this.setSelection(a.length)
+    } else {
+        this.clear()
+    }
+
 }
 
 /** 删除字符串的最后一个字符 **/

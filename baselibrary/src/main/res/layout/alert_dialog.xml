@@ -151,7 +151,7 @@
         android:orientation="horizontal"
         android:gravity="center">
 
-        <Button
+        <TextView
             android:id="@+id/cancel_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -159,11 +159,12 @@
             android:background="@android:color/transparent"
             android:textColor="@color/textColor"
             android:textSize="18dp"
+            android:gravity="center_horizontal"
             android:padding="12dp"
             android:visibility="gone"
             android:text="@string/dialog_cancel" />
 
-        <Button
+        <TextView
             android:id="@+id/confirm_button"
             android:text="@string/dialog_ok"
             android:layout_width="0dp"
@@ -172,6 +173,7 @@
             android:textColor="@color/textColor"
             android:textSize="18dp"
             android:padding="12dp"
+            android:gravity="center_horizontal"
             android:layout_weight="1"/>
 
     </LinearLayout>
