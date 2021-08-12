@@ -16,7 +16,7 @@ Add it in your root build.gradle at the end of repositories:
   
  Add the dependency
 
- 	implementation 'com.gitee.allen056:android_base_library:V1.0.1'
+ 	implementation 'com.gitee.allen056:android_base_library:1.0.7'
 	//依赖的其他开源库
     implementation 'io.reactivex.rxjava2:rxjava:2.1.16'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
@@ -29,6 +29,9 @@ Add it in your root build.gradle at the end of repositories:
     implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
     implementation 'org.greenrobot:eventbus:3.2.0'
 #### 更新日志
+##### V1.0.7
+- 1、已知问题修复
+
 ##### V1.0.1
 - 1、增加了支持右上角红点显示的RedTipTextView
 - 2、增加通用的菜单列表ClickItemView
