@@ -1,7 +1,10 @@
 package com.hh.baselibrary.mvp
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import com.hh.baselibrary.R
 import com.hh.baselibrary.util.StatusBarUtil
@@ -48,17 +51,11 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
         alertDialog.alertSuccessMsg(msg)
     }
 
-    override fun alertOption(
-        title: String, msg: String, callback: MyAlertDialog.AlertClickBack, cancel: String,
-        sure: String
-    ) = alertDialog.alertOption(title, msg, callback, cancel, sure)
+    override fun alertOption(title: String, msg: String, callback: MyAlertDialog.AlertClickBack, cancel: String, sure: String) {
+        alertDialog.alertOption(title, msg, callback, cancel, sure)
+    }
 
-    override fun alertOneButtonOption(
-        title: String,
-        msg: String,
-        callback: MyAlertDialog.ClickBack,
-        buttonText: String
-    ) {
+    override fun alertOneButtonOption(title: String, msg: String, callback: MyAlertDialog.ClickBack, buttonText: String) {
         alertDialog.alertOneButtonOption(title, msg, callback, buttonText)
     }
 
@@ -81,8 +78,34 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
         if (isFinishBefore) finish()
     }
 
+
     fun setStatusBar() {
         StatusBarUtil.setRootViewFitsSystemWindows(this, true)
         StatusBarUtil.setStatusBarColor(this, resources.getColor(R.color.logoColor))
+    }
+
+    /**
+     * 关闭软键盘
+     */
+    fun hintKeyBoard() {
+        //拿到InputMethodManager
+        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        //如果window上view获取焦点 && view不为空
+        if (imm.isActive && currentFocus != null) {
+            //拿到view的token 不为空
+            if (currentFocus?.windowToken != null) {
+                //表示软键盘窗口总是隐藏，除非开始时以SHOW_FORCED显示。
+                imm.hideSoftInputFromWindow(currentFocus?.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+            }
+        }
+    }
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        if (event.action == MotionEvent.ACTION_DOWN) {
+            if (currentFocus != null) {
+                hintKeyBoard()
+            }
+        }
+        return super.onTouchEvent(event)
     }
 }

@@ -62,12 +62,7 @@ abstract class BaseFragment : Fragment(), BaseView {
         baseActivity.alertOption(title, msg, callback, cancel, sure)
     }
 
-    override fun alertOneButtonOption(
-        title: String,
-        msg: String,
-        callback: MyAlertDialog.ClickBack,
-        buttonText: String
-    ) {
+    override fun alertOneButtonOption(title: String, msg: String, callback: MyAlertDialog.ClickBack, buttonText: String) {
         baseActivity.alertOneButtonOption(title, msg, callback, buttonText)
     }
 
@@ -77,6 +72,10 @@ abstract class BaseFragment : Fragment(), BaseView {
 
     override fun miss() {
         baseActivity.finish()
+    }
+
+    fun hintKeyBoard() {
+        baseActivity.hintKeyBoard()
     }
 
     interface ViewCreatedListener {
