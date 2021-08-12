@@ -53,13 +53,22 @@ abstract class BaseFragment : Fragment(), BaseView {
     }
 
     override fun alertOption(
-            title: String,
-            msg: String,
-            callback: MyAlertDialog.AlertClickBack,
-            cancel: String,
-            sure: String
+        title: String,
+        msg: String,
+        callback: MyAlertDialog.AlertClickBack,
+        cancel: String,
+        sure: String
     ) {
         baseActivity.alertOption(title, msg, callback, cancel, sure)
+    }
+
+    override fun alertOneButtonOption(
+        title: String,
+        msg: String,
+        callback: MyAlertDialog.ClickBack,
+        buttonText: String
+    ) {
+        baseActivity.alertOneButtonOption(title, msg, callback, buttonText)
     }
 
     override fun alertSuccess(msg: String) {
