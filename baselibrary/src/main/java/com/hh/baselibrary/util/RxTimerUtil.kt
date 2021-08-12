@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 /**
  * Created by hHui on 2019/6/24 0024.
  */
-object RxTimerUtil {
+class RxTimerUtil {
     private var mDisposable: Disposable? = null
 
     /**
