@@ -16,7 +16,7 @@ Add it in your root build.gradle at the end of repositories:
   
  Add the dependency
 
- 	implementation 'com.gitee.allen056:android_base_library:V1.0.0'
+ 	implementation 'com.gitee.allen056:android_base_library:V1.0.1'
 	//依赖的其他开源库
     implementation 'io.reactivex.rxjava2:rxjava:2.1.16'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
