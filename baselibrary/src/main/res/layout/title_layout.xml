@@ -11,19 +11,19 @@
 
         <ImageView
             android:id="@+id/back"
-            android:layout_width="@dimen/base_dimen_50"
-            android:layout_height="@dimen/base_dimen_50"
+            android:layout_width="@dimen/base_dimen_64"
+            android:layout_height="@dimen/base_dimen_64"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/base_dimen_24"
-            android:background="@drawable/back" />
+            android:src="@drawable/back" />
 
         <TextView
             android:id="@+id/txt_left"
             style="@style/TextBigStyle"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/base_dimen_20"
             android:layout_toRightOf="@+id/back"
             android:textColor="@android:color/white"
-            android:layout_marginLeft="@dimen/base_dimen_20"
             android:textSize="@dimen/normalTextSize"
             android:visibility="gone" />
 
@@ -32,6 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:singleLine="true"
             android:textColor="@android:color/white"
             android:textSize="@dimen/bigTextSize"
             android:textStyle="bold" />
