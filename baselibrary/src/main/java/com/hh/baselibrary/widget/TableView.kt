@@ -24,12 +24,25 @@ class TableView : LinearLayout {
     var isChoice: Boolean = false
         set(value) {
             field = value
-            if (isChoice) {
+            if (value) {
                 table_img.setImageDrawable(choiceDrawable)
                 table_name.setTextColor(resources.getColor(R.color.logoColor))
             } else {
                 table_img.setImageDrawable(normalDrawable)
                 table_name.setTextColor(Color.GRAY)
+            }
+        }
+
+    /**
+     * 此选中状态只修改图片不修改文字颜色
+     */
+    var onlyImageChangeChoice:Boolean = false
+        set(value) {
+            field = value
+            if (value) {
+                table_img.setImageDrawable(choiceDrawable)
+            } else {
+                table_img.setImageDrawable(normalDrawable)
             }
         }
 
