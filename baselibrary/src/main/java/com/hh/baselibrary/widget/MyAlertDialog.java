@@ -137,14 +137,44 @@ public class MyAlertDialog {
     public void alertErrorMsg(String title, String msg) {
         closeAllDialog();
         if (dialogStyle == DialogStyle.IOS) {
-            iosAlertDialog = new IosAlertDialog(mContext).builder().setTitle(title)
-                    .setMsg(msg);
+            iosAlertDialog = new IosAlertDialog(mContext).builder().setTitle(title).setMsg(msg);
             iosAlertDialog.show();
         } else {
             sweetAlertDialog = new SweetAlertDialog(mContext, SweetAlertDialog.ERROR_TYPE).setTitleText(title).setContentText(msg);
             sweetAlertDialog.show();
         }
     }
+
+    /**
+     * 显示只有一个选项的弹出框
+     */
+    public void alertOneButtonOption(String title, String msg, final ClickBack callback, String buttonText) {
+        closeAllDialog();
+        if (dialogStyle == DialogStyle.IOS) {
+            iosAlertDialog = new IosAlertDialog(mContext).builder().setMsg(msg).setTitle(title).setPositiveButton(buttonText, new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    iosAlertDialog.dismiss();
+                    callback.onClick();
+                }
+            });
+            iosAlertDialog.show();
+        } else {
+            sweetAlertDialog = new SweetAlertDialog(mContext, SweetAlertDialog.NORMAL_TYPE)
+                    .setTitleText(title).setContentText(msg)
+                    .showCancelButton(false)
+                    .setConfirmText(buttonText)
+                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sweetAlertDialog) {
+                            MyAlertDialog.this.sweetAlertDialog.dismissWithAnimation();
+                            callback.onClick();
+                        }
+                    });
+            sweetAlertDialog.show();
+        }
+    }
+
 
     /**
      * 带确定取消按钮额弹出框
@@ -199,6 +229,10 @@ public class MyAlertDialog {
         void onConfirm();
 
         void onCancel();
+    }
+
+    public interface ClickBack {
+        void onClick();
     }
 
     public interface CancelClickBask {

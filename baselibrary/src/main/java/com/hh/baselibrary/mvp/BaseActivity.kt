@@ -53,6 +53,15 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
         sure: String
     ) = alertDialog.alertOption(title, msg, callback, cancel, sure)
 
+    override fun alertOneButtonOption(
+        title: String,
+        msg: String,
+        callback: MyAlertDialog.ClickBack,
+        buttonText: String
+    ) {
+        alertDialog.alertOneButtonOption(title, msg, callback, buttonText)
+    }
+
     override fun showToast(msg: String) {
         ToastUtil.showToast(this, msg)
     }

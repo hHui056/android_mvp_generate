@@ -11,6 +11,7 @@ interface BaseView {
     fun closeProgress()
     fun alertSuccess(msg: String)
     fun alertError(title: String = "", msg: String)
+    fun alertOneButtonOption(title: String, msg: String, callback: MyAlertDialog.ClickBack, buttonText: String = "确定")
     fun alertOption(title: String, msg: String, callback: MyAlertDialog.AlertClickBack, cancel: String = "取消", sure: String = "确定")
     fun showToast(msg: String)
     fun miss()
