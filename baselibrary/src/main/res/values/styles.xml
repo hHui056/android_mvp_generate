@@ -33,8 +33,10 @@
         <attr name="title" format="string" />
         <attr name="isSupportBack" format="boolean" />
         <attr name="rightImg" format="reference" />
+        <attr name="backImg" format="reference" />
         <attr name="titleRightText" format="string" />
     </declare-styleable>
+
     <declare-styleable name="TableView">
         <attr name="table" format="string" />
         <attr name="normalImg" format="reference" />

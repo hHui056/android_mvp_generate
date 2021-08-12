@@ -101,11 +101,7 @@ class TitleView : LinearLayout {
             activity.miss()
         }
 
-        img_right.setOnClickListener(object : OnMultiClickListener() {
-            override fun onMultiClick(v: View?) {
-                titleRightImageClickListener?.onClick()
-            }
-        })
+        img_right.setOnClickListener{ titleRightImageClickListener?.onClick()}
 
         txt_right.setOnClickListener { titleRightTextClickListener?.onClick() }
 
@@ -126,7 +122,9 @@ class TitleView : LinearLayout {
         }
         val isSupportBack = typedArray.getBoolean(R.styleable.TitleView_isSupportBack, false)
         val rightImageDrawable = typedArray.getDrawable(R.styleable.TitleView_rightImg)
+        val backImageDrawable = typedArray.getDrawable(R.styleable.TitleView_backImg)
         typedArray.recycle()
+        //设置标题
         title = mText
         //是否显示返回按钮
         back.visibility = if (isSupportBack) View.VISIBLE else View.GONE
@@ -137,6 +135,11 @@ class TitleView : LinearLayout {
             img_right.visibility = View.VISIBLE
             img_right.setImageDrawable(rightImageDrawable)
         }
+        //设置返回的图片（默认为向左的箭头）
+        if (backImageDrawable != null) {
+            back.setImageDrawable(backImageDrawable)
+        }
+        //设置右边文字
         if (rightText != null) {
             txt_right.visibility = View.VISIBLE
             txt_right.text = rightText
@@ -148,5 +151,4 @@ class TitleView : LinearLayout {
     interface TitleRightClick {
         fun onClick()
     }
-
 }
