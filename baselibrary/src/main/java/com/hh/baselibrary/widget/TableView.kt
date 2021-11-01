@@ -11,6 +11,9 @@ import kotlinx.android.synthetic.main.layout_table.view.*
 
 /**
  * Created by hHui on 2020/1/8 0008.
+ *
+ *
+ * 一般用于底部Table也导航切换
  */
 class TableView : LinearLayout {
 
@@ -36,7 +39,7 @@ class TableView : LinearLayout {
     /**
      * 此选中状态只修改图片不修改文字颜色
      */
-    var onlyImageChangeChoice:Boolean = false
+    var onlyImageChangeChoice: Boolean = false
         set(value) {
             field = value
             if (value) {

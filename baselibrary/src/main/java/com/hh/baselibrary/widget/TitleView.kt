@@ -13,6 +13,8 @@ import java.lang.Exception
 
 /**
  * Created by hHui on 2020/1/15 0015.
+ *
+ * 自定义顶部Title
  */
 class TitleView : LinearLayout {
     /**

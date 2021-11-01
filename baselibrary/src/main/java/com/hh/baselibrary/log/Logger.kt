@@ -8,20 +8,21 @@ import java.util.concurrent.atomic.AtomicReference
  */
 class Logger private constructor() {
 
-    private var TAG = "pj_log: "  //所有Log前添加TAG，方便赛选
+    private var TAG = "pj_log: "  //控制台打印日志所有Log前添加TAG，方便赛选
 
     enum class Type {
-        Logcat, File
+        Logcat, File, Net
     }
 
     private lateinit var printer: ILog
 
     private var level: Int = VERBOSE
 
-    constructor(type: Type, level: Int, file: File) : this() {
+    constructor(type: Type, level: Int, file: File, host: String, port: Int) : this() {
         printer = when (type) {
             Type.Logcat -> CatLog()
             Type.File -> FileLog(file)
+            Type.Net -> NetLog(host, port)
         }
         this.level = level
     }
@@ -34,16 +35,19 @@ class Logger private constructor() {
         const val ERROR: Int = 4
         private var logger: AtomicReference<Logger> = AtomicReference()
         private lateinit var logType: Type
-
         /**
          * 初始化
          */
         @JvmStatic
-        fun init(type: Type, level: Int, file: File) {
+        fun init(type: Type, level: Int, file: File, host: String = "", port: Int = 0) {
             if (this.logger.get() == null) {
                 logType = type
-                val logger = Logger(type, level, file)
-                if (logType == Type.File) logger.TAG = ""
+                if (type == Type.Net) {
+                    if (host == "" || port == 0) {
+                        throw Exception("使用远程日志必须传入服务器地址和端口")
+                    }
+                }
+                val logger = Logger(type, level, file, host, port)
                 this.logger = AtomicReference(logger)
             }
         }
@@ -57,8 +61,8 @@ class Logger private constructor() {
             }
         }
 
-        fun of(type: Type, level: Int, file: File): Logger {
-            return Logger(type, level, file)
+        fun of(type: Type, level: Int, file: File, host: String = "", port: Int = 0): Logger {
+            return Logger(type, level, file, host, port)
         }
     }
 

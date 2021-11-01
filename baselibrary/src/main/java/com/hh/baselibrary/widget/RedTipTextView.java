@@ -15,7 +15,7 @@ import com.hh.baselibrary.R;
 /**
  * Created by hHui on 2020/4/20 0020.
  * <p>
- * 显示红点的textView
+ * 右上角显示红点的textView
  */
 public class RedTipTextView extends AppCompatTextView {
     public static final int RED_TIP_INVISIBLE = 0;
