@@ -1,13 +1,15 @@
 package com.hh.baselibrary.widget
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
+import androidx.annotation.ColorInt
 import com.hh.baselibrary.R
 import com.hh.baselibrary.mvp.BaseActivity
-import com.hh.baselibrary.util.common.OnMultiClickListener
+import com.hh.baselibrary.mvp.BaseApplication
 import kotlinx.android.synthetic.main.title_layout.view.*
 import java.lang.Exception
 
@@ -17,6 +19,7 @@ import java.lang.Exception
  * 自定义顶部Title
  */
 class TitleView : LinearLayout {
+
     /**
      * 中间title文字
      */
@@ -61,6 +64,30 @@ class TitleView : LinearLayout {
         }
 
     /**
+     * 顶部导航栏背景颜色
+     */
+    @SuppressLint("ResourceAsColor")
+    @ColorInt
+    var titleBackgroundColor: Int = BaseApplication.logoColor
+        set(value) {
+            field = value
+            layout_title.setBackgroundColor(value)
+        }
+
+    /**
+     * 顶部导航栏文字颜色（包含左边、中间、右边）
+     */
+    @SuppressLint("ResourceAsColor")
+    @ColorInt
+    var titleTextColor: Int = R.color.white
+        set(value) {
+            field = value
+            txt_left.setTextColor(value)
+            m_title.setTextColor(value)
+            txt_right.setTextColor(value)
+        }
+
+    /**
      * 右边图片点击事件监听
      */
     var titleRightImageClickListener: TitleRightClick? = null
@@ -70,18 +97,14 @@ class TitleView : LinearLayout {
      */
     var titleRightTextClickListener: TitleRightClick? = null
 
-    /**
-     * 是否显示右边的图片
-     */
-    var showRightImage: Boolean = false
-        set(value) {
-            field = value
-            img_right.visibility = if (value) View.VISIBLE else View.GONE
-        }
 
     constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle) {
+    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    ) {
         initText(context, attrs)
     }
 
@@ -103,11 +126,9 @@ class TitleView : LinearLayout {
             activity.miss()
         }
 
-        img_right.setOnClickListener{ titleRightImageClickListener?.onClick()}
+        img_right.setOnClickListener { titleRightImageClickListener?.onClick() }
 
         txt_right.setOnClickListener { titleRightTextClickListener?.onClick() }
-
-
     }
 
     private fun initText(context: Context, attrs: AttributeSet) {
@@ -125,7 +146,19 @@ class TitleView : LinearLayout {
         val isSupportBack = typedArray.getBoolean(R.styleable.TitleView_isSupportBack, false)
         val rightImageDrawable = typedArray.getDrawable(R.styleable.TitleView_rightImg)
         val backImageDrawable = typedArray.getDrawable(R.styleable.TitleView_backImg)
+        val titleBackgroundColor =
+            typedArray.getColor(
+                R.styleable.TitleView_titleBackgroundColor,
+                BaseApplication.logoColor
+            )
+        val titleTextColor =
+            typedArray.getColor(R.styleable.TitleView_titleTextColor, R.color.white)
         typedArray.recycle()
+        //设置文字颜色和背景颜色
+        this.titleBackgroundColor = titleBackgroundColor
+        if (titleTextColor != R.color.white) {
+            this.titleTextColor = titleTextColor
+        }
         //设置标题
         title = mText
         //是否显示返回按钮

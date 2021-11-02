@@ -4,16 +4,27 @@
     package="com.hh.androidbaselibrary">
 
     <application
+        android:name=".MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        tools:replace="android:icon,android:label,android:theme"
-        android:theme="@style/AppTheme">
+        android:theme="@style/MyAppCompat"
+        tools:replace="android:icon,android:label,android:theme">
+        <activity
+            android:name=".ui.loginView.LoginViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.clickItem.ClickItemViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.titleView.TitleViewActivity"
+            android:exported="false" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

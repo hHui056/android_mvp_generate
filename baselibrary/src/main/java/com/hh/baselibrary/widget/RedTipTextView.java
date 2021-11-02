@@ -10,6 +10,7 @@ import android.util.AttributeSet;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import com.hh.baselibrary.R;
+import com.hh.baselibrary.mvp.BaseApplication;
 
 
 /**
@@ -76,7 +77,7 @@ public class RedTipTextView extends AppCompatTextView {
         this.choice = choice;
         if (choice) {
             this.setPadding(20, 10, 20, 10);
-            this.setBackgroundColor(getContext().getResources().getColor(R.color.logoColor));
+            this.setBackgroundColor(BaseApplication.Companion.getLogoColor());
             this.setTextColor(Color.WHITE);
         } else {
             this.setPadding(20, 10, 20, 10);

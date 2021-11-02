@@ -45,13 +45,15 @@
             android:layout_marginRight="@dimen/base_dimen_84"
             android:layout_alignParentRight="true"
             android:textSize="@dimen/normalTextSize" />
+
         <ImageView
             android:id="@+id/item_img_right"
             android:layout_width="@dimen/base_dimen_72"
             android:layout_height="@dimen/base_dimen_72"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/base_dimen_84"
-            android:layout_alignParentRight="true"/>
+            android:layout_marginRight="@dimen/base_dimen_84" />
+
         <ImageView
             android:id="@+id/img_right"
             android:layout_width="@dimen/base_dimen_32"

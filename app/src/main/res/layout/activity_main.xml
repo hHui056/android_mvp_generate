@@ -1,19 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/show"
-        android:layout_width="wrap_content"
+    <com.hh.baselibrary.widget.TitleView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SHOW"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:isSupportBack="false"
+        app:title="功能演示" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.hh.baselibrary.widget.ClickItemView
+        android:id="@+id/item_title_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isBottomLineShow="true"
+        app:isTopLineShow="false"
+        app:itemText="TitleView" />
+
+    <com.hh.baselibrary.widget.ClickItemView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isBottomLineShow="true"
+        app:isTopLineShow="false"
+        app:itemText="ChickItemView" />
+
+    <com.hh.baselibrary.widget.ClickItemView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isBottomLineShow="true"
+        app:isTopLineShow="false"
+        app:itemText="MyEditText" />
+
+    <com.hh.baselibrary.widget.ClickItemView
+        android:id="@+id/item_login_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isBottomLineShow="true"
+        app:isTopLineShow="false"
+        app:itemText="LoginView" />
+
+    <com.hh.baselibrary.widget.ClickItemView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isBottomLineShow="true"
+        app:isTopLineShow="false"
+        app:itemText="RegisterView" />
+
+    <com.hh.baselibrary.widget.ClickItemView
+        android:id="@+id/show_option"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isBottomLineShow="true"
+        app:isTopLineShow="false"
+        app:itemText="ShowOption" />
+
+</LinearLayout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/base_dimen_80"
+    android:paddingRight="@dimen/base_dimen_80">
+
+    <ImageView
+        android:id="@+id/login_logo"
+        android:layout_width="@dimen/logoSize"
+        android:layout_height="@dimen/logoSize"
+        android:src="@drawable/ic_launcher" />
+
+    <com.hh.baselibrary.widget.MyEditText
+        android:id="@+id/user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normalTop"
+        app:hint="请输入用户名"
+        app:leftImage="@drawable/phone" />
+
+    <com.hh.baselibrary.widget.MyEditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normalTop"
+        app:hint="请输入密码"
+        app:isPassword="true"
+        app:leftImage="@drawable/password"
+        app:rightImage="@drawable/eye_close" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normalTop"
+        android:paddingVertical="@dimen/base_dimen_18"
+        android:text="登 录"
+        android:textColor="@color/white"
+        android:textSize="@dimen/bigTextSize"
+        android:textStyle="bold"
+        app:cornerRadius="@dimen/base_dimen_20" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normalTop">
+
+        <TextView
+            android:id="@+id/forget_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="忘记密码"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/normalTextSize" />
+
+        <TextView
+            android:id="@+id/new_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="新用户注册"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/normalTextSize" />
+    </RelativeLayout>
+</LinearLayout>

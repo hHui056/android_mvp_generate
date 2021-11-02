@@ -36,11 +36,13 @@ class ClickItemView : LinearLayout {
         set(value) {
             field = value
             if (value) txt_item.setRedTipVisibility(RedTipTextView.RED_TIP_VISIBLE) else txt_item.setRedTipVisibility(
-                    RedTipTextView.RED_TIP_GONE
+                RedTipTextView.RED_TIP_GONE
             )
         }
 
-    /** 右侧图片 **/
+    /**
+     * 右侧[ImageView]
+     */
     var itemRightImage: ImageView? = null
         get() {
             return item_img_right
@@ -54,9 +56,9 @@ class ClickItemView : LinearLayout {
     constructor(context: Context) : super(context)
 
     constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
-            context,
-            attrs,
-            defStyle
+        context,
+        attrs,
+        defStyle
     ) {
         initText(context, attrs)
     }
@@ -95,11 +97,7 @@ class ClickItemView : LinearLayout {
         img_right.visibility = if (isHaveNextPage) View.VISIBLE else View.GONE
         img_item.visibility = if (itemImageDrawable != null) View.VISIBLE else View.GONE
         item_img_right.visibility = if (itemRightImageDrawable != null) View.VISIBLE else View.GONE
-        if (itemImageDrawable != null) {
-            img_item.setImageDrawable(itemImageDrawable)
-        }
-        if (itemRightImageDrawable != null) {
-            item_img_right.setImageDrawable(itemRightImageDrawable)
-        }
+        if (itemImageDrawable != null) img_item.setImageDrawable(itemImageDrawable)
+        if (itemRightImageDrawable != null) item_img_right.setImageDrawable(itemRightImageDrawable)
     }
 }

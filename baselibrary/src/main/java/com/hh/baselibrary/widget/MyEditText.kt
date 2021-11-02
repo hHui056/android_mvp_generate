@@ -24,6 +24,7 @@ import kotlinx.android.synthetic.main.my_edit_layout.view.*
  * 自定义输入框 支持左边图片 右边按钮
  */
 class MyEditText : LinearLayout {
+
     /**
      * 输入框文字
      */
@@ -49,6 +50,16 @@ class MyEditText : LinearLayout {
         }
 
     /**
+     * 按钮提示文字
+     */
+    var hint: String? = null
+        set(value) {
+            field = value
+            edit_content.setHintTextColor(Color.GRAY)
+            edit_content.hint = value
+        }
+
+    /**
      * 是否明文显示密码
      */
     var isShowPassWord: Boolean = false
@@ -56,7 +67,8 @@ class MyEditText : LinearLayout {
             field = value
             if (value) {
                 edit_content.typeface = Typeface.DEFAULT
-                edit_content.transformationMethod = HideReturnsTransformationMethod.getInstance() //明文显示密码
+                edit_content.transformationMethod =
+                    HideReturnsTransformationMethod.getInstance() //明文显示密码
                 edit_content.setSelection(edit_content.length())
                 btn_right.setBackgroundResource(R.drawable.eye_open)
             } else {
@@ -85,7 +97,11 @@ class MyEditText : LinearLayout {
 
     constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle) {
+    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    ) {
         initTextAndImage(context, attrs)
     }
 
@@ -108,6 +124,14 @@ class MyEditText : LinearLayout {
     private fun initTextAndImage(context: Context, attrs: AttributeSet) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.MyEditText)
         val leftImageDrawable = typedArray.getDrawable(R.styleable.MyEditText_leftImage)
+        val rightText = typedArray.getText(R.styleable.MyEditText_rightText)
+        val rightImageDrawable = typedArray.getDrawable(R.styleable.MyEditText_rightImage)
+        val hintText = typedArray.getText(R.styleable.MyEditText_hint)
+        val isNumber = typedArray.getBoolean(R.styleable.MyEditText_isNumber, false)
+        val isPassWord = typedArray.getBoolean(R.styleable.MyEditText_isPassword, false)
+        val maxLength = typedArray.getInt(R.styleable.MyEditText_maxSize, 0)
+        typedArray.recycle()
+
         //左边图片
         if (leftImageDrawable == null) {
             img_left.visibility = View.GONE
@@ -115,48 +139,33 @@ class MyEditText : LinearLayout {
             img_left.setImageDrawable(leftImageDrawable)
         }
         //右边按钮文字
-        var rightText = ""
-        if (typedArray.getText(R.styleable.MyEditText_rightText) != null) {
-            rightText = typedArray.getText(R.styleable.MyEditText_rightText).toString()
-        }
-        if (rightText != "") {
-            btn_right.text = rightText
-        }
+        if (rightText != null) btn_right.text = rightText.toString()
         //右边按钮图片
-        val rightImageDrawable = typedArray.getDrawable(R.styleable.MyEditText_rightImage)
         if (rightImageDrawable == null) {
             btn_right.setBackgroundResource(R.drawable.shape_corner)
         } else {
             btn_right.background = rightImageDrawable
         }
 
-        btn_right.visibility = if (rightText != "" || rightImageDrawable != null) View.VISIBLE else View.GONE
+        btn_right.visibility =
+            if (rightText != null || rightImageDrawable != null) View.VISIBLE else View.GONE
 
         //提示文字
-        var hintText = ""
-        if (typedArray.getText(R.styleable.MyEditText_hint) != null) {
-            hintText = typedArray.getText(R.styleable.MyEditText_hint).toString()
+        if (hintText != null) {
+            edit_content.setHintTextColor(Color.GRAY)
+            edit_content.hint = hintText
         }
-        edit_content.setHintTextColor(Color.GRAY)
-        edit_content.hint = hintText
-
-        val isNumber = typedArray.getBoolean(R.styleable.MyEditText_isNumber, false)
         if (isNumber) edit_content.inputType = InputType.TYPE_CLASS_NUMBER
-
-        val isPassWord = typedArray.getBoolean(R.styleable.MyEditText_isPassword, false)
         if (isPassWord) {
             edit_content.typeface = Typeface.DEFAULT
             edit_content.transformationMethod = PasswordTransformationMethod.getInstance()
-
             rightButtonClickListener = object : RightButtonClickListener {
                 override fun onClick() {
                     isShowPassWord = !isShowPassWord
                 }
             }
         }
-
         //最大长度
-        val maxLength = typedArray.getInt(R.styleable.MyEditText_maxSize, 0)
         if (maxLength != 0) {
             edit_content.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(maxLength))
         }

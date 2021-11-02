@@ -23,7 +23,7 @@ import java.lang.reflect.Method;
 /**
  * Created by hHui on 2020/1/9 0009.
  */
-
+@SuppressLint("ObsoleteSdkInt")
 public class StatusBarUtil {
     public final static int TYPE_MIUI = 0;
     public final static int TYPE_FLYME = 1;
@@ -100,27 +100,6 @@ public class StatusBarUtil {
         }
 
     }
-
-
-//    /**
-//     * 设置状态栏深色浅色切换
-//     */
-//    public static boolean setStatusBarDarkTheme(Activity activity, boolean dark) {
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//                setStatusBarFontIconDark(activity, TYPE_M, dark);
-//            } else if (OSUtils.isMiui()) {
-//                setStatusBarFontIconDark(activity, TYPE_MIUI, dark);
-//            } else if (OSUtils.isFlyme()) {
-//                setStatusBarFontIconDark(activity, TYPE_FLYME, dark);
-//            } else {//其他情况
-//                return false;
-//            }
-//
-//            return true;
-//        }
-//        return false;
-//    }
 
     /**
      * 设置 状态栏深色浅色切换

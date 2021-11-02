@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
-import com.hh.baselibrary.R
 import com.hh.baselibrary.util.StatusBarUtil
 import com.hh.baselibrary.util.ToastUtil
 import com.hh.baselibrary.widget.MyAlertDialog
@@ -51,11 +50,22 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
         alertDialog.alertSuccessMsg(msg)
     }
 
-    override fun alertOption(title: String, msg: String, callback: MyAlertDialog.AlertClickBack, cancel: String, sure: String) {
+    override fun alertOption(
+        title: String,
+        msg: String,
+        callback: MyAlertDialog.AlertClickBack,
+        cancel: String,
+        sure: String
+    ) {
         alertDialog.alertOption(title, msg, callback, cancel, sure)
     }
 
-    override fun alertOneButtonOption(title: String, msg: String, callback: MyAlertDialog.ClickBack, buttonText: String) {
+    override fun alertOneButtonOption(
+        title: String,
+        msg: String,
+        callback: MyAlertDialog.ClickBack,
+        buttonText: String
+    ) {
         alertDialog.alertOneButtonOption(title, msg, callback, buttonText)
     }
 
@@ -78,10 +88,12 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
         if (isFinishBefore) finish()
     }
 
-
+    /**
+     * 设置沉浸式状态栏
+     */
     fun setStatusBar() {
         StatusBarUtil.setRootViewFitsSystemWindows(this, true)
-        StatusBarUtil.setStatusBarColor(this, resources.getColor(R.color.logoColor))
+        StatusBarUtil.setStatusBarColor(this, BaseApplication.logoColor)
     }
 
     /**
@@ -95,7 +107,10 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
             //拿到view的token 不为空
             if (currentFocus?.windowToken != null) {
                 //表示软键盘窗口总是隐藏，除非开始时以SHOW_FORCED显示。
-                imm.hideSoftInputFromWindow(currentFocus?.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+                imm.hideSoftInputFromWindow(
+                    currentFocus?.windowToken,
+                    InputMethodManager.HIDE_NOT_ALWAYS
+                )
             }
         }
     }

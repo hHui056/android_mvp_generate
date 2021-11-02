@@ -30,11 +30,20 @@
     </style>
 
     <declare-styleable name="TitleView">
+        <!--标题-->
         <attr name="title" format="string" />
+        <!--是否支持返回-->
         <attr name="isSupportBack" format="boolean" />
+        <!--右边图片-->
         <attr name="rightImg" format="reference" />
+        <!-- 返回键图片-->
         <attr name="backImg" format="reference" />
+        <!--标题右侧文字-->
         <attr name="titleRightText" format="string" />
+        <!-- 标题栏背景颜色-->
+        <attr name="titleBackgroundColor" format="color" />
+        <!-- 标题文字颜色-->
+        <attr name="titleTextColor" format="color" />
     </declare-styleable>
 
     <declare-styleable name="TableView">
@@ -94,20 +103,56 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
+    <style name="title_text_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
     <declare-styleable name="ClickItemView">
+        <!--list文本-->
         <attr name="itemText" format="string" />
+        <!-- 是否显示上划线-->
         <attr name="isTopLineShow" format="boolean" />
+        <!--是否显示下划线-->
         <attr name="isBottomLineShow" format="boolean" />
+        <!--是否显示右侧下一页箭头-->
         <attr name="haveNextPage" format="boolean" />
+        <!--item左侧图片-->
         <attr name="itemImg" format="reference" />
+        <!--item右侧图片-->
         <attr name="itemRightImg" format="reference" />
+        <!--item文字颜色-->
         <attr name="itemTextColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="LoginView">
+        <!--是否支持用户注册 默认true-->
+        <attr name="supportRegister" format="boolean" />
+        <!--登录按钮背景颜色&#45;&#45;默认为BaseApplication中设置的颜色-->
+        <attr name="loginButtonBackgroundColor" format="color" />
+        <!--登录按钮字体颜色 默认为白色-->
+        <attr name="loginButtonTextColor" format="color" />
+        <!--用户名输入提示-->
+        <attr name="userNameHint" format="string" />
+        <!--密码输入提示-->
+        <attr name="passwordHint" format="string" />
+        <!--登录按钮文字-->
+        <attr name="loginButtonText" format="string" />
+        <!--忘记密码按钮文字-->
+        <attr name="forgetButtonText" format="string" />
+        <!--新用户注册按钮文字-->
+        <attr name="newRegisterButtonText" format="string" />
+        <!--页面图标-->
+        <attr name="icon" format="reference" />
+
     </declare-styleable>
     <declare-styleable name="RedTipTextView">
         <attr name="redTipsVisibility">
-            <enum name="invisible" value="0"></enum>
-            <enum name="visible" value="1"></enum>
-            <enum name="gone" value="2"></enum>
+            <enum name="invisible" value="0" />
+            <enum name="visible" value="1" />
+            <enum name="gone" value="2" />
         </attr>
     </declare-styleable>
 </resources>

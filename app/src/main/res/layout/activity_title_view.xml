@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.titleView.TitleViewActivity"
+    tools:ignore="MissingDefaultResource">
+
+    <com.hh.baselibrary.widget.TitleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isSupportBack="true"
+        app:title="TitleView" />
+
+    <com.hh.baselibrary.widget.TitleView
+        android:id="@+id/title_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isSupportBack="true"
+        app:title="TitleView"
+        app:titleBackgroundColor="@color/material_deep_teal_50"
+        app:titleRightText="右侧文字"
+        app:backImg="@drawable/alert_bg"
+        app:rightImg="@drawable/alert_bg"
+        app:titleTextColor="@color/red_btn_bg_color" />
+</LinearLayout>

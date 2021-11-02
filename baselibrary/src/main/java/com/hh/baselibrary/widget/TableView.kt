@@ -7,6 +7,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import com.hh.baselibrary.R
+import com.hh.baselibrary.mvp.BaseApplication
 import kotlinx.android.synthetic.main.layout_table.view.*
 
 /**
@@ -29,7 +30,7 @@ class TableView : LinearLayout {
             field = value
             if (value) {
                 table_img.setImageDrawable(choiceDrawable)
-                table_name.setTextColor(resources.getColor(R.color.logoColor))
+                table_name.setTextColor(BaseApplication.logoColor)
             } else {
                 table_img.setImageDrawable(normalDrawable)
                 table_name.setTextColor(Color.GRAY)
