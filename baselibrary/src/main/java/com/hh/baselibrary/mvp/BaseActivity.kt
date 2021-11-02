@@ -33,8 +33,8 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
         alertDialog.showDialogLoading(msg)
     }
 
-    override fun showProgressCanCle(msg: String) {
-        alertDialog.showDialogLoading(msg)
+    override fun showProgressCanCle(msg: String,cancelText:String,callback:MyAlertDialog.CancelClickBack?) {
+        alertDialog.showDialogLoadingCancel(msg,cancelText,callback)
     }
 
     override fun closeProgress() {

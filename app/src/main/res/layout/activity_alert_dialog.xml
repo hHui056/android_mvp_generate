@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.dialog.AlertDialogActivity">
+    tools:context=".ui.baseView.BaseViewActivity">
 
     <com.hh.baselibrary.widget.TitleView
         android:layout_width="match_parent"
@@ -37,6 +37,21 @@
             android:layout_height="wrap_content"
             android:text="加载中" />
 
+        <Button
+            android:id="@+id/can_cancel_loading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="可关闭的loading" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="只有一个按钮的功能提示框" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="两个按钮的功能提示框" />
     </LinearLayout>
 
 </LinearLayout>

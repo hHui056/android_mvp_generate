@@ -13,7 +13,7 @@
         android:theme="@style/MyAppCompat"
         tools:replace="android:icon,android:label,android:theme">
         <activity
-            android:name=".ui.dialog.AlertDialogActivity"
+            android:name=".ui.baseView.BaseViewActivity"
             android:exported="false" />
         <activity
             android:name=".ui.loginView.LoginViewActivity"

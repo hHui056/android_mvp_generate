@@ -6,7 +6,7 @@ import com.hh.baselibrary.widget.MyAlertDialog
  * Create By hHui on 2021年3月23日
  */
 interface BaseView {
-    fun showProgressCanCle(msg: String = "Loading")
+    fun showProgressCanCle(msg: String = "Loading",cancelText:String = "取消",callback: MyAlertDialog.CancelClickBack?=null)
     fun showProgress(msg: String = "Loading...")
     fun closeProgress()
     fun alertSuccess(msg: String)

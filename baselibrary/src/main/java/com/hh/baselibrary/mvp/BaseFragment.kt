@@ -31,8 +31,12 @@ abstract class BaseFragment : Fragment(), BaseView {
         }
     }
 
-    override fun showProgressCanCle(msg: String) {
-        baseActivity.showProgressCanCle(msg)
+    override fun showProgressCanCle(
+        msg: String,
+        cancelText: String,
+        callback: MyAlertDialog.CancelClickBack?
+    ) {
+        baseActivity.showProgressCanCle(msg,cancelText, callback)
     }
 
 

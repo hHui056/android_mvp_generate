@@ -45,6 +45,16 @@ public class MyAlertDialog {
         processDialog.showLoading(message);
     }
 
+    public void showDialogLoadingCancel(String message, String cancelText, CancelClickBack callback) {
+        closeAllDialog();
+        if (processDialog == null) {
+            processDialog = new LoadingDialog();
+            processDialog.init(mContext);
+        }
+        processDialog.showLoadingCanCancel(message, cancelText, callback);
+    }
+
+
     @SuppressLint("NewApi")
     public void closeDialogLoading() {
         if (mContext instanceof AppCompatActivity) {
@@ -235,7 +245,7 @@ public class MyAlertDialog {
         void onClick();
     }
 
-    public interface CancelClickBask {
+    public interface CancelClickBack {
         void onCancel();
     }
 }

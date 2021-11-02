@@ -1,12 +1,13 @@
-package com.hh.androidbaselibrary.ui.dialog
+package com.hh.androidbaselibrary.ui.baseView
 
 import android.os.Bundle
 import com.hh.androidbaselibrary.R
 import com.hh.baselibrary.mvp.BaseActivity
 import com.hh.baselibrary.util.RxTimerUtil
+import com.hh.baselibrary.widget.MyAlertDialog
 import kotlinx.android.synthetic.main.activity_alert_dialog.*
 
-class AlertDialogActivity : BaseActivity() {
+class BaseViewActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +25,13 @@ class AlertDialogActivity : BaseActivity() {
                     if (number == 3L) {
                         closeProgress()
                     }
+                }
+            })
+        }
+        can_cancel_loading.setOnClickListener {
+            showProgressCanCle(msg = "加载中",cancelText = "cancel",callback = object : MyAlertDialog.CancelClickBack {
+                override fun onCancel() {
+                    showToast("点击了取消")
                 }
             })
         }

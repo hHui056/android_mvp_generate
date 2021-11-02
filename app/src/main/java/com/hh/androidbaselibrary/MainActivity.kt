@@ -4,7 +4,7 @@ import android.os.Build
 import android.os.Bundle
 import androidx.annotation.RequiresApi
 import com.hh.androidbaselibrary.test.Person
-import com.hh.androidbaselibrary.ui.dialog.AlertDialogActivity
+import com.hh.androidbaselibrary.ui.baseView.BaseViewActivity
 import com.hh.androidbaselibrary.ui.loginView.LoginViewActivity
 import com.hh.androidbaselibrary.ui.titleView.TitleViewActivity
 import com.hh.baselibrary.mvp.BaseActivity
@@ -36,7 +36,7 @@ class MainActivity : BaseActivity() {
 
         item_title_view.setOnClickListener { jump2Activity(TitleViewActivity::class.java, false) }
         item_login_view.setOnClickListener { jump2Activity(LoginViewActivity::class.java, false) }
-        item_dialog.setOnClickListener { jump2Activity(AlertDialogActivity::class.java, false) }
+        item_dialog.setOnClickListener { jump2Activity(BaseViewActivity::class.java, false) }
     }
 
     override fun initView() {

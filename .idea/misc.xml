@@ -3,7 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/gitee/android_base_library/app/src/main/res/layout/activity_alert_dialog.xml" value="0.17916666666666667" />
+        <entry key="..\:/gitee/android_base_library/app/src/main/res/layout/activity_alert_dialog.xml" value="0.22" />
         <entry key="..\:/gitee/android_base_library/app/src/main/res/layout/activity_click_item_view.xml" value="0.21458333333333332" />
         <entry key="..\:/gitee/android_base_library/app/src/main/res/layout/activity_login_view.xml" value="0.15104166666666666" />
         <entry key="..\:/gitee/android_base_library/app/src/main/res/layout/activity_main.xml" value="0.24322916666666666" />
@@ -11,6 +11,7 @@
         <entry key="..\:/gitee/android_base_library/baselibrary/src/main/res/drawable/item_click_background.xml" value="0.259375" />
         <entry key="..\:/gitee/android_base_library/baselibrary/src/main/res/layout/activity_capture.xml" value="0.2234375" />
         <entry key="..\:/gitee/android_base_library/baselibrary/src/main/res/layout/click_item_layout.xml" value="0.17527173913043478" />
+        <entry key="..\:/gitee/android_base_library/baselibrary/src/main/res/layout/dialog_layout.xml" value="0.33" />
         <entry key="..\:/gitee/android_base_library/baselibrary/src/main/res/layout/layout_table.xml" value="0.18802083333333333" />
         <entry key="..\:/gitee/android_base_library/baselibrary/src/main/res/layout/login_view_layout.xml" value="0.25" />
         <entry key="..\:/gitee/android_base_library/baselibrary/src/main/res/layout/title_layout.xml" value="0.16168478260869565" />
