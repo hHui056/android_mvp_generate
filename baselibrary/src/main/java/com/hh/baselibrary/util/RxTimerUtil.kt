@@ -24,9 +24,7 @@ class RxTimerUtil {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : Observer<Long> {
                     override fun onError(e: Throwable) = Unit
-
                     override fun onComplete() = Unit
-
                     override fun onSubscribe(d: Disposable) {
                         mDisposable = d
                     }

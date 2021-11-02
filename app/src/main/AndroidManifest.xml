@@ -13,6 +13,9 @@
         android:theme="@style/MyAppCompat"
         tools:replace="android:icon,android:label,android:theme">
         <activity
+            android:name=".ui.dialog.AlertDialogActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.loginView.LoginViewActivity"
             android:exported="false" />
         <activity

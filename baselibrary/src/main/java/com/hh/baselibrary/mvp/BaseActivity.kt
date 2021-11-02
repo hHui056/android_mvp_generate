@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.hh.baselibrary.util.StatusBarUtil
 import com.hh.baselibrary.util.ToastUtil
 import com.hh.baselibrary.widget.MyAlertDialog
-import com.hh.baselibrary.widget.ios.DialogStyle
 
 /**
  * Create By hHui on 2021/3/23 0023
@@ -23,7 +22,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        alertDialog = MyAlertDialog(this, DialogStyle.IOS)
+        alertDialog = MyAlertDialog(this, BaseApplication.dialogStyle)
 
         setStatusBar() //设置沉浸式状态栏
     }

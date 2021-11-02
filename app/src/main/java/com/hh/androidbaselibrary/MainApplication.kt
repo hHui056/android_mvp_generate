@@ -7,6 +7,6 @@ import com.hh.baselibrary.mvp.BaseApplication
  */
 class MainApplication : BaseApplication() {
     override fun init() {
-        initApplicationThemeColor(resources.getColor(R.color.error_stroke_color))
+        setApplicationThemeColor(resources.getColor(R.color.error_stroke_color))
     }
 }

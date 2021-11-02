@@ -4,6 +4,7 @@ import android.os.Build
 import android.os.Bundle
 import androidx.annotation.RequiresApi
 import com.hh.androidbaselibrary.test.Person
+import com.hh.androidbaselibrary.ui.dialog.AlertDialogActivity
 import com.hh.androidbaselibrary.ui.loginView.LoginViewActivity
 import com.hh.androidbaselibrary.ui.titleView.TitleViewActivity
 import com.hh.baselibrary.mvp.BaseActivity
@@ -14,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 @RequiresApi(Build.VERSION_CODES.N)
 class MainActivity : BaseActivity() {
-    val optionUtil = ShowOptionUtil(this)
+    private val optionUtil = ShowOptionUtil(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +36,7 @@ class MainActivity : BaseActivity() {
 
         item_title_view.setOnClickListener { jump2Activity(TitleViewActivity::class.java, false) }
         item_login_view.setOnClickListener { jump2Activity(LoginViewActivity::class.java, false) }
+        item_dialog.setOnClickListener { jump2Activity(AlertDialogActivity::class.java, false) }
     }
 
     override fun initView() {

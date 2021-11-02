@@ -22,6 +22,14 @@
         app:itemText="TitleView" />
 
     <com.hh.baselibrary.widget.ClickItemView
+        android:id="@+id/item_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isBottomLineShow="true"
+        app:isTopLineShow="false"
+        app:itemText="AlertDialog" />
+
+    <com.hh.baselibrary.widget.ClickItemView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:isBottomLineShow="true"
