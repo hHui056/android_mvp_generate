@@ -126,7 +126,6 @@
         <!--item文字颜色-->
         <attr name="itemTextColor" format="color" />
     </declare-styleable>
-
     <declare-styleable name="LoginView">
         <!--是否支持用户注册 默认true-->
         <attr name="supportRegister" format="boolean" />

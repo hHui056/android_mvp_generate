@@ -13,6 +13,9 @@
         android:theme="@style/MyAppCompat"
         tools:replace="android:icon,android:label,android:theme">
         <activity
+            android:name=".ui.registerView.RegisterViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.baseView.BaseViewActivity"
             android:exported="false" />
         <activity

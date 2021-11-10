@@ -52,6 +52,7 @@
         app:itemText="LoginView" />
 
     <com.hh.baselibrary.widget.ClickItemView
+        android:id="@+id/item_register_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:isBottomLineShow="true"

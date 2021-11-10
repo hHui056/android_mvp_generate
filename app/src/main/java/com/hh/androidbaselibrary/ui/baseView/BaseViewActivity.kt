@@ -29,9 +29,31 @@ class BaseViewActivity : BaseActivity() {
             })
         }
         can_cancel_loading.setOnClickListener {
-            showProgressCanCle(msg = "加载中",cancelText = "cancel",callback = object : MyAlertDialog.CancelClickBack {
+            showProgressCanCle(
+                msg = "加载中",
+                cancelText = "cancel",
+                callback = object : MyAlertDialog.CancelClickBack {
+                    override fun onCancel() {
+                        showToast("点击了取消")
+                    }
+                })
+        }
+
+        one_button.setOnClickListener {
+            alertOneButtonOption("提示", "只有确定按钮！", object : MyAlertDialog.ClickBack {
+                override fun onClick() {
+                    showToast("点击了确定")
+                }
+            })
+        }
+
+        option.setOnClickListener {
+            alertOption("提示", "确定删除？", object : MyAlertDialog.AlertClickBack {
+                override fun onConfirm() {
+                    showToast("确定")
+                }
                 override fun onCancel() {
-                    showToast("点击了取消")
+                    showToast("取消")
                 }
             })
         }

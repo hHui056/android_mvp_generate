@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.click_item_layout.view.*
  *
  */
 class ClickItemView : LinearLayout {
+
     /** 项显示文本 **/
     var text: String = ""
         set(value) {

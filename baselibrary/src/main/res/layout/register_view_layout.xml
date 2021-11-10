@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/base_dimen_80"
+    android:paddingRight="@dimen/base_dimen_80"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="@dimen/logoSize"
+        android:layout_height="@dimen/logoSize"
+        android:src="@drawable/ic_launcher" />
+
+    <com.hh.baselibrary.widget.MyEditText
+        android:id="@+id/phone_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/bigTop"
+        app:hint="请输入手机号"
+        app:isNumber="true"
+        app:leftImage="@drawable/phone"
+        app:maxSize="11" />
+
+    <com.hh.baselibrary.widget.MyEditText
+        android:id="@+id/verification_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normalTop"
+        app:hint="请输入验证码"
+        app:isNumber="true"
+        app:leftImage="@drawable/verification"
+        app:maxSize="6"
+        app:rightText="发送验证码" />
+
+    <com.hh.baselibrary.widget.MyEditText
+        android:id="@+id/password_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normalTop"
+        app:hint="请输入密码"
+        app:isPassword="true"
+        app:leftImage="@drawable/password"
+        app:rightImage="@drawable/eye_close" />
+
+    <com.hh.baselibrary.widget.MyEditText
+        android:id="@+id/password_input_again"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normalTop"
+        app:hint="再次输入密码"
+        app:isPassword="true"
+        app:leftImage="@drawable/password"
+        app:rightImage="@drawable/eye_close" />
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normalTop"
+        android:text="注 册"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/normalTextSize"
+        android:textStyle="bold" />
+</LinearLayout>

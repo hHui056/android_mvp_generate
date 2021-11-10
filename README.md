@@ -48,6 +48,7 @@ Add the dependency
 - 1、TitleView支持自定义字体颜色、返回键图标、背景颜色等
 - 2、增加Application基类，支持自定义app主题颜色（程序的Application需要继承此类，否则不能调用主题颜色修改）
 - 3、增加一些通用页面：登录、注册、密码找回等
+- 4、增加sample
 
 ##### V1.0.8
 
