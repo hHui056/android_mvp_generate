@@ -64,6 +64,15 @@ class TitleView : LinearLayout {
         }
 
     /**
+     * 是否显示右边的图片
+     */
+    var showRightImage: Boolean = true
+        set(value) {
+            field = value
+            img_right.visibility = if (value) View.VISIBLE else View.GONE
+        }
+
+    /**
      * 顶部导航栏背景颜色
      */
     @SuppressLint("ResourceAsColor")
