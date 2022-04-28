@@ -67,4 +67,11 @@
         app:isTopLineShow="false"
         app:itemText="ShowOption" />
 
+    <com.hh.baselibrary.widget.ClickItemView
+        android:id="@+id/tab_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isBottomLineShow="true"
+        app:isTopLineShow="false"
+        app:itemText="TabLayout+ViewPager(支持角标红点)" />
 </LinearLayout>

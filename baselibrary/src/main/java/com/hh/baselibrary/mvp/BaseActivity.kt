@@ -15,7 +15,7 @@ import com.hh.baselibrary.widget.MyAlertDialog
  *
  * Activity基类，所有Activity都继承此类
  */
-abstract class BaseActivity : AppCompatActivity(), BaseView {
+abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
     val tag = this.javaClass.simpleName
 
     lateinit var alertDialog: MyAlertDialog   //提示框
@@ -33,8 +33,12 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
         alertDialog.showDialogLoading(msg)
     }
 
-    override fun showProgressCanCle(msg: String,cancelText:String,callback:MyAlertDialog.CancelClickBack?) {
-        alertDialog.showDialogLoadingCancel(msg,cancelText,callback)
+    override fun showProgressCanCle(
+        msg: String,
+        cancelText: String,
+        callback: MyAlertDialog.CancelClickBack?
+    ) {
+        alertDialog.showDialogLoadingCancel(msg, cancelText, callback)
     }
 
     override fun closeProgress() {

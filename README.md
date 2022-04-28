@@ -29,7 +29,7 @@ Add it in your root build.gradle at the end of repositories:
 
 Add the dependency
 
- 	implementation 'com.gitee.allen056:android_base_library:1.0.7'
+ 	implementation 'com.gitee.allen056:android_base_library:1.0.14'
 	//依赖的其他开源库
     implementation 'io.reactivex.rxjava2:rxjava:2.2.10'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
@@ -42,6 +42,11 @@ Add the dependency
     implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
 
 #### 更新日志
+
+##### V1.0.14
+- 1、优化部分目录结构
+- 2、增加部分已知类型的扩展方法
+
 
 ##### V1.0.9
 

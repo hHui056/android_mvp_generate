@@ -9,7 +9,7 @@ import com.hh.baselibrary.widget.MyAlertDialog
 /**
  * Create By hHui on 2021/5/31 0031 下午 13:29
  */
-abstract class BaseFragment : Fragment(), BaseView {
+abstract class BaseFragment : Fragment(), BaseContract.View {
 
     var viewCreatedListener: ViewCreatedListener? = null
 
@@ -36,7 +36,7 @@ abstract class BaseFragment : Fragment(), BaseView {
         cancelText: String,
         callback: MyAlertDialog.CancelClickBack?
     ) {
-        baseActivity.showProgressCanCle(msg,cancelText, callback)
+        baseActivity.showProgressCanCle(msg, cancelText, callback)
     }
 
 
@@ -66,7 +66,12 @@ abstract class BaseFragment : Fragment(), BaseView {
         baseActivity.alertOption(title, msg, callback, cancel, sure)
     }
 
-    override fun alertOneButtonOption(title: String, msg: String, callback: MyAlertDialog.ClickBack, buttonText: String) {
+    override fun alertOneButtonOption(
+        title: String,
+        msg: String,
+        callback: MyAlertDialog.ClickBack,
+        buttonText: String
+    ) {
         baseActivity.alertOneButtonOption(title, msg, callback, buttonText)
     }
 

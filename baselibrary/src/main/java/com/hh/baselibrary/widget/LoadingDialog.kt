@@ -50,7 +50,6 @@ class LoadingDialog {
         window.attributes = lp
         window.setWindowAnimations(R.style.PopWindowAnimStyle)
     }
-
     /**
      * 显示loading
      */

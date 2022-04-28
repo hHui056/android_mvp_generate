@@ -2,6 +2,7 @@ package com.hh.baselibrary.util.expend
 
 import android.annotation.SuppressLint
 import android.widget.EditText
+import com.hh.baselibrary.util.encrypt.Md5Util
 import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
@@ -47,6 +48,11 @@ fun String.toDate(type: DateType = DateType.SECOND): Date {
 
 fun String?.toShow(): String {
     return if (this == null) "" else this!!
+}
+
+//获取md5加密后的字符串
+fun String.md5(): String {
+    return Md5Util.encrypt(this)
 }
 
 //获取输入框字符串 未输入返回null
