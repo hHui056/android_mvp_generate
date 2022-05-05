@@ -42,13 +42,20 @@ Add the dependency
     implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
 
 #### 更新日志
+
+##### V1.0.16
+
+- 1、调整titleview右侧图片大小
+- 2、支持设置沉浸式状态栏和透明状态栏选项
+
 ##### V1.0.15
+
 - 1、TitleView支持右侧显示两个图标并设置点击事件;
 
 ##### V1.0.14
+
 - 1、优化部分目录结构
 - 2、增加部分已知类型的扩展方法
-
 
 ##### V1.0.9
 

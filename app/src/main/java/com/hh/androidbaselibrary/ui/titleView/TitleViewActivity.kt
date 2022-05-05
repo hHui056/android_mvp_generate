@@ -14,7 +14,10 @@ class TitleViewActivity : BaseActivity() {
     }
 
     override fun initView() {
-
         title_test.leftText = "左侧文字"
+    }
+
+    override fun transportStatusBar(): Boolean {
+        return false
     }
 }

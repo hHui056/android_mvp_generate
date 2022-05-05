@@ -29,14 +29,14 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
 
     abstract fun initView()
 
+    abstract fun transportStatusBar(): Boolean
+
     override fun showProgress(msg: String) {
         alertDialog.showDialogLoading(msg)
     }
 
     override fun showProgressCanCle(
-        msg: String,
-        cancelText: String,
-        callback: MyAlertDialog.CancelClickBack?
+        msg: String, cancelText: String, callback: MyAlertDialog.CancelClickBack?
     ) {
         alertDialog.showDialogLoadingCancel(msg, cancelText, callback)
     }
@@ -64,10 +64,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
     }
 
     override fun alertOneButtonOption(
-        title: String,
-        msg: String,
-        callback: MyAlertDialog.ClickBack,
-        buttonText: String
+        title: String, msg: String, callback: MyAlertDialog.ClickBack, buttonText: String
     ) {
         alertDialog.alertOneButtonOption(title, msg, callback, buttonText)
     }
@@ -94,9 +91,13 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
     /**
      * 设置沉浸式状态栏
      */
-    fun setStatusBar() {
-        StatusBarUtil.setRootViewFitsSystemWindows(this, true)
-        StatusBarUtil.setStatusBarColor(this, BaseApplication.logoColor)
+    private fun setStatusBar() {
+        if (transportStatusBar()) {
+            StatusBarUtil.setTranslucentStatus(this)
+        } else {
+            StatusBarUtil.setRootViewFitsSystemWindows(this, true)
+            StatusBarUtil.setStatusBarColor(this, BaseApplication.logoColor)
+        }
     }
 
     /**
@@ -111,8 +112,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
             if (currentFocus?.windowToken != null) {
                 //表示软键盘窗口总是隐藏，除非开始时以SHOW_FORCED显示。
                 imm.hideSoftInputFromWindow(
-                    currentFocus?.windowToken,
-                    InputMethodManager.HIDE_NOT_ALWAYS
+                    currentFocus?.windowToken, InputMethodManager.HIDE_NOT_ALWAYS
                 )
             }
         }

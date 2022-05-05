@@ -29,4 +29,8 @@ class LoginViewActivity : BaseActivity() {
             }
         }
     }
+
+    override fun transportStatusBar(): Boolean {
+        return false
+    }
 }

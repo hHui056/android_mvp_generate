@@ -70,4 +70,9 @@ public class TabLayoutActivity extends BaseActivity {
     public void initView() {
 
     }
+
+    @Override
+    public boolean transportStatusBar() {
+        return false;
+    }
 }

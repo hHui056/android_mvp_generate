@@ -13,4 +13,8 @@ class ClickItemViewActivity : BaseActivity() {
     override fun initView() {
 
     }
+
+    override fun transportStatusBar(): Boolean {
+        return false
+    }
 }

@@ -29,8 +29,7 @@ class BaseViewActivity : BaseActivity() {
             })
         }
         can_cancel_loading.setOnClickListener {
-            showProgressCanCle(
-                msg = "加载中",
+            showProgressCanCle(msg = "加载中",
                 cancelText = "cancel",
                 callback = object : MyAlertDialog.CancelClickBack {
                     override fun onCancel() {
@@ -52,10 +51,15 @@ class BaseViewActivity : BaseActivity() {
                 override fun onConfirm() {
                     showToast("确定")
                 }
+
                 override fun onCancel() {
                     showToast("取消")
                 }
             })
         }
+    }
+
+    override fun transportStatusBar(): Boolean {
+        return false
     }
 }

@@ -39,15 +39,18 @@ class MainActivity : BaseActivity() {
         item_title_view.setOnClickListener { jump2Activity(TitleViewActivity::class.java, false) }
         item_login_view.setOnClickListener { jump2Activity(LoginViewActivity::class.java, false) }
         item_dialog.setOnClickListener { jump2Activity(BaseViewActivity::class.java, false) }
-        tab_view_pager.setOnClickListener { jump2Activity(TabLayoutActivity::class.java,false) }
+        tab_view_pager.setOnClickListener { jump2Activity(TabLayoutActivity::class.java, false) }
         item_register_view.setOnClickListener {
             jump2Activity(
-                RegisterViewActivity::class.java,
-                false
+                RegisterViewActivity::class.java, false
             )
         }
     }
 
     override fun initView() {
+    }
+
+    override fun transportStatusBar(): Boolean {
+        return false
     }
 }

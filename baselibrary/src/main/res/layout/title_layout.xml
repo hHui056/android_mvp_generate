@@ -31,8 +31,8 @@
 
     <ImageView
         android:id="@+id/img_right1"
-        android:layout_width="@dimen/base_dimen_50"
-        android:layout_height="@dimen/base_dimen_50"
+        android:layout_width="@dimen/base_dimen_36"
+        android:layout_height="@dimen/base_dimen_36"
         android:layout_centerVertical="true"
         android:layout_marginRight="@dimen/base_dimen_30"
         android:layout_toLeftOf="@+id/img_right2"
@@ -40,8 +40,8 @@
 
     <ImageView
         android:id="@+id/img_right2"
-        android:layout_width="@dimen/base_dimen_50"
-        android:layout_height="@dimen/base_dimen_50"
+        android:layout_width="@dimen/base_dimen_36"
+        android:layout_height="@dimen/base_dimen_36"
         android:layout_alignParentRight="true"
         android:layout_marginRight="@dimen/base_dimen_30"
         android:visibility="gone" />
