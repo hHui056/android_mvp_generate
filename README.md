@@ -42,6 +42,8 @@ Add the dependency
     implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
 
 #### 更新日志
+##### V1.0.15
+- 1、TitleView支持右侧显示两个图标并设置点击事件;
 
 ##### V1.0.14
 - 1、优化部分目录结构
