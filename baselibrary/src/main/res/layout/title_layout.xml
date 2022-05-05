@@ -43,6 +43,7 @@
         android:layout_width="@dimen/base_dimen_36"
         android:layout_height="@dimen/base_dimen_36"
         android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         android:layout_marginRight="@dimen/base_dimen_30"
         android:visibility="gone" />
 
