@@ -34,8 +34,10 @@
         <attr name="title" format="string" />
         <!--是否支持返回-->
         <attr name="isSupportBack" format="boolean" />
-        <!--右边图片-->
-        <attr name="rightImg" format="reference" />
+        <!--右边图片1-->
+        <attr name="rightImg1" format="reference" />
+        <!--右边图片2-->
+        <attr name="rightImg2" format="reference" />
         <!-- 返回键图片-->
         <attr name="backImg" format="reference" />
         <!--标题右侧文字-->

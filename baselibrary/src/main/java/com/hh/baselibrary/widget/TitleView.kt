@@ -64,15 +64,6 @@ class TitleView : LinearLayout {
         }
 
     /**
-     * 是否显示右边的图片
-     */
-    var showRightImage: Boolean = true
-        set(value) {
-            field = value
-            img_right.visibility = if (value) View.VISIBLE else View.GONE
-        }
-
-    /**
      * 顶部导航栏背景颜色
      */
     @SuppressLint("ResourceAsColor")
@@ -97,9 +88,14 @@ class TitleView : LinearLayout {
         }
 
     /**
-     * 右边图片点击事件监听
+     * 右边图片1点击事件监听
      */
-    var titleRightImageClickListener: TitleRightClick? = null
+    var titleRightImage1ClickListener: TitleRightClick? = null
+
+    /**
+     * 右边图片2点击事件监听
+     */
+    var titleRightImage2ClickListener: TitleRightClick? = null
 
     /**
      * 右边文字点击事件监听
@@ -110,9 +106,7 @@ class TitleView : LinearLayout {
     constructor(context: Context) : super(context)
 
     constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
-        context,
-        attrs,
-        defStyle
+        context, attrs, defStyle
     ) {
         initText(context, attrs)
     }
@@ -125,7 +119,6 @@ class TitleView : LinearLayout {
         initView()
     }
 
-
     private fun initView() {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         inflater.inflate(R.layout.title_layout, this)
@@ -135,8 +128,8 @@ class TitleView : LinearLayout {
             activity.miss()
         }
 
-        img_right.setOnClickListener { titleRightImageClickListener?.onClick() }
-
+        img_right1.setOnClickListener { titleRightImage1ClickListener?.onClick() }
+        img_right2.setOnClickListener { titleRightImage2ClickListener?.onClick() }
         txt_right.setOnClickListener { titleRightTextClickListener?.onClick() }
     }
 
@@ -153,13 +146,12 @@ class TitleView : LinearLayout {
             null
         }
         val isSupportBack = typedArray.getBoolean(R.styleable.TitleView_isSupportBack, false)
-        val rightImageDrawable = typedArray.getDrawable(R.styleable.TitleView_rightImg)
+        val rightImageDrawable1 = typedArray.getDrawable(R.styleable.TitleView_rightImg1)
+        val rightImageDrawable2 = typedArray.getDrawable(R.styleable.TitleView_rightImg2)
         val backImageDrawable = typedArray.getDrawable(R.styleable.TitleView_backImg)
-        val titleBackgroundColor =
-            typedArray.getColor(
-                R.styleable.TitleView_titleBackgroundColor,
-                BaseApplication.logoColor
-            )
+        val titleBackgroundColor = typedArray.getColor(
+            R.styleable.TitleView_titleBackgroundColor, BaseApplication.logoColor
+        )
         val titleTextColor =
             typedArray.getColor(R.styleable.TitleView_titleTextColor, R.color.white)
         typedArray.recycle()
@@ -172,12 +164,19 @@ class TitleView : LinearLayout {
         title = mText
         //是否显示返回按钮
         back.visibility = if (isSupportBack) View.VISIBLE else View.GONE
-        //右边图片
-        if (rightImageDrawable == null) {
-            img_right.visibility = View.GONE
+        //右边图片1
+        if (rightImageDrawable1 == null) {
+            img_right1.visibility = View.GONE
         } else {
-            img_right.visibility = View.VISIBLE
-            img_right.setImageDrawable(rightImageDrawable)
+            img_right1.visibility = View.VISIBLE
+            img_right1.setImageDrawable(rightImageDrawable1)
+        }
+        //右边图片2
+        if (rightImageDrawable2 == null) {
+            img_right2.visibility = View.GONE
+        } else {
+            img_right2.visibility = View.VISIBLE
+            img_right2.setImageDrawable(rightImageDrawable2)
         }
         //设置返回的图片（默认为向左的箭头）
         if (backImageDrawable != null) {

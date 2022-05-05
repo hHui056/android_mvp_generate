@@ -29,8 +29,18 @@
         android:layout_height="wrap_content"
         app:backImg="@drawable/alert_bg"
         app:isSupportBack="true"
-        app:rightImg="@drawable/alert_bg"
+        app:rightImg1="@drawable/alert_bg"
         app:title="TitleView2"
         app:titleBackgroundColor="@color/material_deep_teal_50"
+        app:titleTextColor="@color/red_btn_bg_color" />
+
+    <com.hh.baselibrary.widget.TitleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isSupportBack="true"
+        app:title="csdfsdfsfsdf"
+        app:titleBackgroundColor="@color/material_deep_teal_50"
+        app:rightImg1="@drawable/phone"
+        app:rightImg2="@drawable/phone"
         app:titleTextColor="@color/red_btn_bg_color" />
 </LinearLayout>
