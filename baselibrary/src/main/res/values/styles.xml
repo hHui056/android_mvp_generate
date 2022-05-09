@@ -33,6 +33,13 @@
         <attr name="showItemDecoration" format="boolean"/>
         <!--显示grid时每一行显示条数-->
         <attr name="gridLineNumber" format="integer"/>
+        <!--显示类型-->
+        <attr name="showType">
+            <!--列表-->
+            <enum name="list" value="0" />
+            <!--网格图-->
+            <enum name="grid" value="1" />
+        </attr>
     </declare-styleable>
 
     <declare-styleable name="TitleView">

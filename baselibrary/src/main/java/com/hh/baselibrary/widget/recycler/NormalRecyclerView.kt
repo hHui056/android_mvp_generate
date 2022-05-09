@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.nomal_recycler_layout.view.*
  * Create By hHui on 2022/5/9 0009 下午 15:03
  *
  * 封装RecyclerView包含无数据的提示
+ * 可监听项的点击事件和项中元素的点击事件
  */
 class NormalRecyclerView<T> : RelativeLayout {
     private lateinit var adapter: MBaseAdapter<T>
@@ -30,6 +31,8 @@ class NormalRecyclerView<T> : RelativeLayout {
 
     //显示为网格是每一行显示个数
     private var girdNum = 4
+    //显示方式 0-列表 1-网格
+    private var showType = 0
 
     //整个项的点击事件
     var recyclerViewItemClickListener: RecyclerViewItemClickListener<T>? = null
@@ -50,9 +53,11 @@ class NormalRecyclerView<T> : RelativeLayout {
     constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
         context, attrs, defStyle
     ) {
+        initStyle(context, attrs)
     }
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+        initStyle(context, attrs)
     }
 
     init {
@@ -62,38 +67,38 @@ class NormalRecyclerView<T> : RelativeLayout {
     /**
      * 列表显示
      */
-    fun initLinear(adapter: MBaseAdapter<T>, noDataView: View) {
+    fun init(adapter: MBaseAdapter<T>, noDataView: View) {
         this.adapter = adapter
         this.noDataView = noDataView
         layout_no_data.addView(noDataView)
-
-        val layoutManager = LinearLayoutManager(context)
-        m_recycler.layoutManager = layoutManager
-        if (showItemDecoration) m_recycler.addItemDecoration(
-            DividerItemDecoration(
-                context, layoutManager.orientation
+        if (showType==0){
+            val layoutManager = LinearLayoutManager(context)
+            m_recycler.layoutManager = layoutManager
+            if (showItemDecoration) m_recycler.addItemDecoration(
+                DividerItemDecoration(
+                    context, layoutManager.orientation
+                )
             )
-        )
+        }else{
+            val layoutManager = GridLayoutManager(context, girdNum)
+            m_recycler.layoutManager = layoutManager
+            m_recycler.adapter = adapter
+        }
         m_recycler.adapter = this.adapter
-    }
-
-    /**
-     * 网格显示
-     */
-    fun initGrid(adapter: MBaseAdapter<T>, noDataView: View) {
-        this.adapter = adapter
-        this.noDataView = noDataView
-        layout_no_data.addView(noDataView)
-
-        val layoutManager = GridLayoutManager(context, girdNum)
-        m_recycler.layoutManager = layoutManager
-        m_recycler.adapter = adapter
     }
 
     private fun initView() {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         view = inflater.inflate(R.layout.nomal_recycler_layout, this)
+    }
 
+    private fun initStyle(context: Context, attrs: AttributeSet) {
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.NormalRecyclerView)
+        this.girdNum = typedArray.getInt(R.styleable.NormalRecyclerView_gridLineNumber,3)
+        this.showType = typedArray.getInt(R.styleable.NormalRecyclerView_showType,0)
+        this.showItemDecoration = typedArray.getBoolean(R.styleable.NormalRecyclerView_showItemDecoration,false)
+
+        typedArray.recycle()
     }
 
     @SuppressLint("NotifyDataSetChanged")

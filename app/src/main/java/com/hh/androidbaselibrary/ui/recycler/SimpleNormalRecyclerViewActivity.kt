@@ -25,7 +25,7 @@ class SimpleNormalRecyclerViewActivity : BaseActivity() {
         val mRecyclerView = test_rec as NormalRecyclerView<Person>
         val noDataView = TextView(this)
         noDataView.text = "没有数据怎么显示啊"
-        mRecyclerView.initLinear(adapter, noDataView)
+        mRecyclerView.init(adapter, noDataView)
         btn_show.setOnClickListener {
             for (i in 0..10) {
                 list.add(Person("name_$i", i + 10))
