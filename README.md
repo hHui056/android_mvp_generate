@@ -42,7 +42,13 @@ Add the dependency
     implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
 
 #### 更新日志
+
+##### V1.0.18
+
+- 1、封装recylerView封装，支持显示无数据view自定义
+
 ##### V1.0.17
+
 - 1、bug fix
 
 ##### V1.0.16

@@ -6,6 +6,7 @@ import androidx.annotation.RequiresApi
 import com.hh.androidbaselibrary.test.Person
 import com.hh.androidbaselibrary.ui.baseView.BaseViewActivity
 import com.hh.androidbaselibrary.ui.loginView.LoginViewActivity
+import com.hh.androidbaselibrary.ui.recycler.SimpleNormalRecyclerViewActivity
 import com.hh.androidbaselibrary.ui.registerView.RegisterViewActivity
 import com.hh.androidbaselibrary.ui.tab.TabLayoutActivity
 import com.hh.androidbaselibrary.ui.titleView.TitleViewActivity
@@ -40,6 +41,7 @@ class MainActivity : BaseActivity() {
         item_login_view.setOnClickListener { jump2Activity(LoginViewActivity::class.java, false) }
         item_dialog.setOnClickListener { jump2Activity(BaseViewActivity::class.java, false) }
         tab_view_pager.setOnClickListener { jump2Activity(TabLayoutActivity::class.java, false) }
+        tab_recycler.setOnClickListener { jump2Activity(SimpleNormalRecyclerViewActivity::class.java,false) }
         item_register_view.setOnClickListener {
             jump2Activity(
                 RegisterViewActivity::class.java, false

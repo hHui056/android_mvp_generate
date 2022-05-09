@@ -28,6 +28,12 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/smallTextSize</item>
     </style>
+    <declare-styleable name="NormalRecyclerView">
+        <!--是否显示分割线-->
+        <attr name="showItemDecoration" format="boolean"/>
+        <!--显示grid时每一行显示条数-->
+        <attr name="gridLineNumber" format="integer"/>
+    </declare-styleable>
 
     <declare-styleable name="TitleView">
         <!--标题-->

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.recycler.SimpleNormalRecyclerViewActivity">
+
+    <com.hh.baselibrary.widget.TitleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isSupportBack="true"
+        app:title="SimpleRecycler" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="显示数据" />
+
+        <Button
+            android:id="@+id/btn_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/base_dimen_20"
+            android:text="清空数据" />
+    </LinearLayout>
+
+    <com.hh.baselibrary.widget.recycler.NormalRecyclerView
+        android:id="@+id/test_rec"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

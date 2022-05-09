@@ -13,6 +13,9 @@
         android:theme="@style/MyAppCompat"
         tools:replace="android:name,android:icon,android:label,android:theme,android:roundIcon">
         <activity
+            android:name=".ui.recycler.SimpleNormalRecyclerViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.tab.TabLayoutActivity"
             android:exported="false" />
         <activity
