@@ -36,7 +36,5 @@
         android:id="@+id/test_rec"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:showType="grid"
-        app:gridLineNumber="5"
         app:showItemDecoration="true"/>
 </LinearLayout>

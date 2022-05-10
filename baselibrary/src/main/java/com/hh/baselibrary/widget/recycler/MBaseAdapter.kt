@@ -15,6 +15,8 @@ abstract class MBaseAdapter<T>(var list: List<T>) :
 
     var recyclerItemElementClickListener: RecyclerItemElementClickListener<T>? = null
 
+    var listenerIds: Array<Int>? = null
+
     open inner class MBaseViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         init {
             view.setOnClickListener {
@@ -24,11 +26,21 @@ abstract class MBaseAdapter<T>(var list: List<T>) :
                 for (i in 0 until view.childCount) {
                     val child = view.getChildAt(i)
                     child.setOnClickListener {
-                        recyclerItemElementClickListener?.onClick(
-                            child.id,
-                            adapterPosition,
-                            list[adapterPosition]
-                        )
+                        if (recyclerItemElementClickListener == null || listenerIds == null) {
+                            recyclerViewItemClickListener?.onClick(
+                                adapterPosition, list[adapterPosition]
+                            )
+                        } else {
+                            if (listenerIds!!.contains(child.id)) {
+                                recyclerItemElementClickListener?.onClick(
+                                    child.id, adapterPosition, list[adapterPosition]
+                                )
+                            } else {
+                                recyclerViewItemClickListener?.onClick(
+                                    adapterPosition, list[adapterPosition]
+                                )
+                            }
+                        }
                     }
                 }
             }

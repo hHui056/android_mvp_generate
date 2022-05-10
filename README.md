@@ -45,6 +45,11 @@ Add the dependency
 
 ##### V1.0.18
 
+- 1、1.0.18 bugfix
+- 2、初始化NormalRecyclerView时支持不传无数据显示View
+
+##### V1.0.18
+
 - 1、封装recylerView封装，支持显示无数据view自定义
 
 ##### V1.0.17

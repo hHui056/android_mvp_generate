@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.nomal_recycler_layout.view.*
  */
 class NormalRecyclerView<T> : RelativeLayout {
     private lateinit var adapter: MBaseAdapter<T>
-    private lateinit var noDataView: View
+    private var noDataView: View? = null
     private lateinit var view: View
 
     //是否显示每一列的分割线
@@ -31,6 +31,7 @@ class NormalRecyclerView<T> : RelativeLayout {
 
     //显示为网格是每一行显示个数
     private var girdNum = 4
+
     //显示方式 0-列表 1-网格
     private var showType = 0
 
@@ -41,12 +42,6 @@ class NormalRecyclerView<T> : RelativeLayout {
             adapter.recyclerViewItemClickListener = value
         }
 
-    //元素的点击事件
-    var recyclerItemElementClickListener: RecyclerItemElementClickListener<T>? = null
-        set(value) {
-            field = value
-            adapter.recyclerItemElementClickListener = value
-        }
 
     constructor(context: Context) : super(context)
 
@@ -65,13 +60,14 @@ class NormalRecyclerView<T> : RelativeLayout {
     }
 
     /**
-     * 列表显示
+     * 初始化
+     * @param noDataView 无数据时显示（可为null）
      */
-    fun init(adapter: MBaseAdapter<T>, noDataView: View) {
+    fun init(adapter: MBaseAdapter<T>, noDataView: View? = null) {
         this.adapter = adapter
         this.noDataView = noDataView
-        layout_no_data.addView(noDataView)
-        if (showType==0){
+        if (noDataView != null) layout_no_data.addView(noDataView)
+        if (showType == 0) {
             val layoutManager = LinearLayoutManager(context)
             m_recycler.layoutManager = layoutManager
             if (showItemDecoration) m_recycler.addItemDecoration(
@@ -79,7 +75,7 @@ class NormalRecyclerView<T> : RelativeLayout {
                     context, layoutManager.orientation
                 )
             )
-        }else{
+        } else {
             val layoutManager = GridLayoutManager(context, girdNum)
             m_recycler.layoutManager = layoutManager
             m_recycler.adapter = adapter
@@ -94,9 +90,10 @@ class NormalRecyclerView<T> : RelativeLayout {
 
     private fun initStyle(context: Context, attrs: AttributeSet) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.NormalRecyclerView)
-        this.girdNum = typedArray.getInt(R.styleable.NormalRecyclerView_gridLineNumber,3)
-        this.showType = typedArray.getInt(R.styleable.NormalRecyclerView_showType,0)
-        this.showItemDecoration = typedArray.getBoolean(R.styleable.NormalRecyclerView_showItemDecoration,false)
+        this.girdNum = typedArray.getInt(R.styleable.NormalRecyclerView_gridLineNumber, 3)
+        this.showType = typedArray.getInt(R.styleable.NormalRecyclerView_showType, 0)
+        this.showItemDecoration =
+            typedArray.getBoolean(R.styleable.NormalRecyclerView_showItemDecoration, false)
 
         typedArray.recycle()
     }
@@ -107,6 +104,15 @@ class NormalRecyclerView<T> : RelativeLayout {
         adapter.notifyDataSetChanged()
 
         m_recycler.visibility = if (list.isEmpty()) View.GONE else View.VISIBLE
-        this.noDataView.visibility = if (list.isEmpty()) View.VISIBLE else View.GONE
+        this.noDataView?.visibility = if (list.isEmpty()) View.VISIBLE else View.GONE
+    }
+
+    fun addElementClickListener(listener: RecyclerItemElementClickListener<T>, vararg ids: Int) {
+        adapter.recyclerItemElementClickListener = listener
+        val idList = ArrayList<Int>()
+        for (item in ids) {
+            idList.add(item)
+        }
+        adapter.listenerIds = idList.toTypedArray()
     }
 }
