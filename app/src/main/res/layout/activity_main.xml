@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         app:isBottomLineShow="true"
         app:isTopLineShow="false"
+        app:haveNextPage="false"
         app:itemText="BaseView基础能力展示" />
 
     <com.hh.baselibrary.widget.ClickItemView

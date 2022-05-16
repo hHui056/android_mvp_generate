@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.view.DragEvent;
 
 import androidx.appcompat.widget.AppCompatTextView;
 
@@ -84,5 +85,10 @@ public class RedTipTextView extends AppCompatTextView {
             this.setBackgroundColor(getContext().getResources().getColor(R.color.gray_btn_bg_color));
             this.setTextColor(Color.BLACK);
         }
+    }
+
+    @Override
+    public boolean onDragEvent(DragEvent event) {
+        return super.onDragEvent(event);
     }
 }

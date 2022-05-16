@@ -32,6 +32,13 @@ class ClickItemView : LinearLayout {
             txt_right.text = value
         }
 
+    /** 右边文字颜色 **/
+    var rightTextColor: Int = 0
+        set(value) {
+            field = value
+            txt_right.setTextColor(value)
+        }
+
     /** 是否显示右上角红点 **/
     var showRedTip: Boolean = false
         set(value) {
@@ -57,9 +64,7 @@ class ClickItemView : LinearLayout {
     constructor(context: Context) : super(context)
 
     constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
-        context,
-        attrs,
-        defStyle
+        context, attrs, defStyle
     ) {
         initText(context, attrs)
     }

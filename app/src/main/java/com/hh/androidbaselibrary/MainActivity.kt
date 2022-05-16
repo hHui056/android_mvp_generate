@@ -3,6 +3,7 @@ package com.hh.androidbaselibrary
 import android.os.Build
 import android.os.Bundle
 import androidx.annotation.RequiresApi
+import androidx.core.view.marginRight
 import com.hh.androidbaselibrary.test.Person
 import com.hh.androidbaselibrary.ui.baseView.BaseViewActivity
 import com.hh.androidbaselibrary.ui.loginView.LoginViewActivity
@@ -36,6 +37,9 @@ class MainActivity : BaseActivity() {
                 }
             })
         }
+
+        item_dialog.rightText = "右边文字"
+        item_dialog.rightTextColor = resources.getColor(R.color.red_btn_bg_color)
 
         item_title_view.setOnClickListener { jump2Activity(TitleViewActivity::class.java, false) }
         item_login_view.setOnClickListener { jump2Activity(LoginViewActivity::class.java, false) }

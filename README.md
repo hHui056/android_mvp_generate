@@ -42,6 +42,9 @@ Add the dependency
     implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
 
 #### 更新日志
+##### V1.0.19
+1、ClickItemView支持右边文字颜色设置
+2、修改默认字体大小为12sp(TODO 下个版本增加字体大小可配置)
 
 ##### V1.0.18
 
