@@ -10,6 +10,7 @@ import com.bigkoo.pickerview.listener.OnOptionsSelectListener
 import com.bigkoo.pickerview.view.OptionsPickerView
 import com.hh.baselibrary.R
 import com.hh.baselibrary.exception.HHException
+import com.hh.baselibrary.mvp.BaseApplication
 import java.lang.reflect.Method
 
 
@@ -23,19 +24,19 @@ class ShowOptionUtil(val context: Context) {
     private var pvOptions: OptionsPickerView<String>? = null
 
     @Throws
-    fun <T> showOptionChoice(
-        data: List<T>,
-        title: String,
-        listener: OptionItemChoiceListener
-    ) {
+    fun <T> showOptionChoice(data: List<T>, title: String, listener: OptionItemChoiceListener) {
         //条件选择器
         pvOptions = OptionsPickerBuilder(context, OnOptionsSelectListener { options1, _, _, _ ->
             //返回的分别是三个级别的选中位置
             listener.onChoice(options1)
         }).setLayoutRes(R.layout.option_choice_layout) { v ->
-            val tvSubmit = v.findViewById<View>(R.id.tv_finish) as TextView
-            val tvCancel = v.findViewById<View>(R.id.tv_cancel) as TextView
+            val tvSubmit = v.findViewById<TextView>(R.id.tv_finish)
+            val tvCancel = v.findViewById<TextView>(R.id.tv_cancel)
             val tvTitle = v.findViewById<TextView>(R.id.tv_title)
+            tvCancel.setTextColor(BaseApplication.logoColor)
+            tvSubmit.setTextColor(BaseApplication.logoColor)
+            tvTitle.setTextColor(BaseApplication.logoColor)
+
             tvTitle.text = title
 
             tvSubmit.setOnClickListener {
@@ -43,8 +44,7 @@ class ShowOptionUtil(val context: Context) {
                 pvOptions!!.dismiss()
             }
             tvCancel.setOnClickListener { pvOptions!!.dismiss() }
-        }.isDialog(false).setOutSideCancelable(false)
-            .build()
+        }.isDialog(false).setOutSideCancelable(false).build()
         val list = ArrayList<String>()
         data.forEach {
             val str = getShowString(it!!)

@@ -23,8 +23,7 @@
             android:layout_marginRight="17dp"
             android:padding="8dp"
             android:text="取消"
-            android:textColor="#24AD9D"
-            android:textSize="18sp" />
+            android:textSize="@dimen/normalTextSize" />
 
         <TextView
             android:id="@+id/tv_title"
@@ -44,8 +43,7 @@
             android:layout_marginRight="17dp"
             android:padding="8dp"
             android:text="确定"
-            android:textColor="#24AD9D"
-            android:textSize="18sp" />
+            android:textSize="@dimen/normalTextSize" />
 
         <View
             android:layout_width="match_parent"
