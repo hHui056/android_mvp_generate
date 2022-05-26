@@ -24,11 +24,11 @@ class ShowOptionUtil(val context: Context) {
     private var pvOptions: OptionsPickerView<String>? = null
 
     @Throws
-    fun <T> showOptionChoice(data: List<T>, title: String, listener: OptionItemChoiceListener) {
+    fun <T> showOptionChoice(data: List<T>, title: String, listener: OptionItemChoiceListener<T>) {
         //条件选择器
         pvOptions = OptionsPickerBuilder(context, OnOptionsSelectListener { options1, _, _, _ ->
             //返回的分别是三个级别的选中位置
-            listener.onChoice(options1)
+            listener.onChoice(options1, data[options1])
         }).setLayoutRes(R.layout.option_choice_layout) { v ->
             val tvSubmit = v.findViewById<TextView>(R.id.tv_finish)
             val tvCancel = v.findViewById<TextView>(R.id.tv_cancel)
@@ -36,9 +36,7 @@ class ShowOptionUtil(val context: Context) {
             tvCancel.setTextColor(BaseApplication.logoColor)
             tvSubmit.setTextColor(BaseApplication.logoColor)
             tvTitle.setTextColor(BaseApplication.logoColor)
-
             tvTitle.text = title
-
             tvSubmit.setOnClickListener {
                 pvOptions!!.returnData()
                 pvOptions!!.dismiss()

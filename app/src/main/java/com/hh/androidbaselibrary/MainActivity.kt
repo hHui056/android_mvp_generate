@@ -31,13 +31,12 @@ class MainActivity : BaseActivity() {
                 list.add(Person("选项$i", 0))
             }
 
-            optionUtil.showOptionChoice(list, "", object : OptionItemChoiceListener {
-                override fun onChoice(position: Int) {
+            optionUtil.showOptionChoice(list, "", object : OptionItemChoiceListener<Person> {
+                override fun onChoice(position: Int, data: Person) {
                     ToastUtil.showToast(this@MainActivity, "$position")
                 }
             })
         }
-
         item_dialog.rightText = "右边文字"
         item_dialog.rightTextColor = resources.getColor(R.color.red_btn_bg_color)
 
@@ -45,7 +44,7 @@ class MainActivity : BaseActivity() {
         item_login_view.setOnClickListener { jump2Activity(LoginViewActivity::class.java, false) }
         item_dialog.setOnClickListener { jump2Activity(BaseViewActivity::class.java, false) }
         tab_view_pager.setOnClickListener { jump2Activity(TabLayoutActivity::class.java, false) }
-        tab_recycler.setOnClickListener { jump2Activity(SimpleNormalRecyclerViewActivity::class.java,false) }
+        tab_recycler.setOnClickListener { jump2Activity(SimpleNormalRecyclerViewActivity::class.java, false) }
         item_register_view.setOnClickListener {
             jump2Activity(
                 RegisterViewActivity::class.java, false
