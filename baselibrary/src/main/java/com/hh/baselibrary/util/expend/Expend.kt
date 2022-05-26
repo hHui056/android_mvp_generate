@@ -99,13 +99,17 @@ fun EditText.clear() {
 //设置Edittext输入框值
 fun EditText.showText(content: Any?) {
     if (content != null) {
-        val a = content.toString()
+        val a = if (content is Double) {
+            val doubleValue = content.toString().trim()
+            if (doubleValue.endsWith(".0")) doubleValue.replace(".0", "") else doubleValue
+        } else {
+            content.toString()
+        }
         this.setText(a)
         this.setSelection(a.length)
     } else {
         this.clear()
     }
-
 }
 
 /** 删除字符串的最后一个字符 **/

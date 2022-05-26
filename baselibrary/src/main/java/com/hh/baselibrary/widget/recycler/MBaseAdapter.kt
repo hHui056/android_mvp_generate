@@ -9,8 +9,7 @@ import com.hh.baselibrary.util.common.RecyclerViewItemClickListener
 /**
  * Create By hHui on 2022/5/9 0009 下午 15:16
  */
-abstract class MBaseAdapter<T>(var list: List<T>) :
-    RecyclerView.Adapter<MBaseAdapter<T>.MBaseViewHolder>() {
+abstract class MBaseAdapter<T>(var list: List<T>) : RecyclerView.Adapter<MBaseAdapter<T>.MBaseViewHolder>() {
     var recyclerViewItemClickListener: RecyclerViewItemClickListener<T>? = null
 
     var recyclerItemElementClickListener: RecyclerItemElementClickListener<T>? = null
@@ -27,18 +26,12 @@ abstract class MBaseAdapter<T>(var list: List<T>) :
                     val child = view.getChildAt(i)
                     child.setOnClickListener {
                         if (recyclerItemElementClickListener == null || listenerIds == null) {
-                            recyclerViewItemClickListener?.onClick(
-                                adapterPosition, list[adapterPosition]
-                            )
+                            recyclerViewItemClickListener?.onClick(adapterPosition, list[adapterPosition])
                         } else {
                             if (listenerIds!!.contains(child.id)) {
-                                recyclerItemElementClickListener?.onClick(
-                                    child.id, adapterPosition, list[adapterPosition]
-                                )
+                                recyclerItemElementClickListener?.onClick(child.id, adapterPosition, list[adapterPosition])
                             } else {
-                                recyclerViewItemClickListener?.onClick(
-                                    adapterPosition, list[adapterPosition]
-                                )
+                                recyclerViewItemClickListener?.onClick(adapterPosition, list[adapterPosition])
                             }
                         }
                     }
