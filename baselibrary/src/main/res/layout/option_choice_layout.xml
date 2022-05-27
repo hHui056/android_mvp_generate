@@ -31,8 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:padding="8dp"
-            android:textColor="#24AD9D"
-            android:textSize="18sp" />
+            android:textSize="@dimen/normalTextSize" />
 
         <TextView
             android:id="@+id/tv_finish"

@@ -1,6 +1,7 @@
 package com.hh.baselibrary.widget.option
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Build
 import android.view.View
 import android.widget.TextView
@@ -33,7 +34,7 @@ class ShowOptionUtil(val context: Context) {
             val tvSubmit = v.findViewById<TextView>(R.id.tv_finish)
             val tvCancel = v.findViewById<TextView>(R.id.tv_cancel)
             val tvTitle = v.findViewById<TextView>(R.id.tv_title)
-            tvCancel.setTextColor(BaseApplication.logoColor)
+            tvCancel.setTextColor(Color.RED)
             tvSubmit.setTextColor(BaseApplication.logoColor)
             tvTitle.setTextColor(BaseApplication.logoColor)
             tvTitle.text = title
