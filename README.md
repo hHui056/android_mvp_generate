@@ -29,7 +29,7 @@ Add it in your root build.gradle at the end of repositories:
 
 Add the dependency
 
- 	implementation 'com.gitee.allen056:android_base_library:1.0.14'
+ 	implementation 'com.gitee.allen056:android_base_library:1.22.3'
 	//依赖的其他开源库
     implementation 'io.reactivex.rxjava2:rxjava:2.2.10'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
@@ -42,12 +42,22 @@ Add the dependency
     implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
 
 #### 更新日志
+
+##### V1.22.3
+1、BaseApplication中增加对所有Activity的管理
+2、CheckItemView左侧图片大小调整为自适应
+3、增加树状目录到基础库中
+4、调整默认的小号字体为11sp
+5、修改OptionUtil Title显示的字体大小和颜色，OptionUtild点击确定返回position和T
+6、修改版本号命名方式（第一位为大版本、第二位为年份、第三位为递增版本）
+
 ##### V1.0.20
+
 1、优化EditText的扩展方法showText显示double时如果为整数不显示.0
 
 ##### V1.0.19
-1、ClickItemView支持右边文字颜色设置
-2、修改默认字体大小为12sp(TODO 下个版本增加字体大小可配置)
+
+1、ClickItemView支持右边文字颜色设置 2、修改默认字体大小为12sp(TODO 下个版本增加字体大小可配置)
 
 ##### V1.0.18
 

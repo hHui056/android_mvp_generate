@@ -25,9 +25,9 @@
         android:id="@+id/item_dialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:haveNextPage="false"
         app:isBottomLineShow="true"
         app:isTopLineShow="false"
-        app:haveNextPage="false"
         app:itemText="BaseView基础能力展示" />
 
     <com.hh.baselibrary.widget.ClickItemView
@@ -83,4 +83,12 @@
         app:isBottomLineShow="true"
         app:isTopLineShow="false"
         app:itemText="封装RecyclerView(支持无数据时提示)" />
+
+    <com.hh.baselibrary.widget.ClickItemView
+        android:id="@+id/tab_restart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isBottomLineShow="true"
+        app:isTopLineShow="false"
+        app:itemText="退出重启应用" />
 </LinearLayout>

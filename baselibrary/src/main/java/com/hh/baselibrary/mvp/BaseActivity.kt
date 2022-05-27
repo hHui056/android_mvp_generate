@@ -23,8 +23,13 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         alertDialog = MyAlertDialog(this, BaseApplication.dialogStyle)
-
+        BaseApplication.instance.addActivity(this)
         setStatusBar() //设置沉浸式状态栏
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        BaseApplication.instance.removeActivity(this)
     }
 
     abstract fun initView()
@@ -54,11 +59,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
     }
 
     override fun alertOption(
-        title: String,
-        msg: String,
-        callback: MyAlertDialog.AlertClickBack,
-        cancel: String,
-        sure: String
+        title: String, msg: String, callback: MyAlertDialog.AlertClickBack, cancel: String, sure: String
     ) {
         alertDialog.alertOption(title, msg, callback, cancel, sure)
     }

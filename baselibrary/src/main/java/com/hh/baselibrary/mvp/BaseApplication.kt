@@ -14,8 +14,11 @@ import com.hh.baselibrary.widget.ios.DialogStyle
  * Application基类
  */
 abstract class BaseApplication : Application() {
+    private val activities = ArrayList<BaseActivity>()
 
     companion object {
+        lateinit var instance: BaseApplication
+
         //主题颜色
         @SuppressLint("ResourceAsColor")
         @ColorRes
@@ -25,6 +28,10 @@ abstract class BaseApplication : Application() {
         //弹窗风格
         var dialogStyle: DialogStyle = DialogStyle.SweetDialog
             private set
+    }
+
+    init {
+        instance = this
     }
 
     override fun onCreate() {
@@ -37,13 +44,22 @@ abstract class BaseApplication : Application() {
      * 设置APP主题颜色，弹窗风格，如果不使用则使用默认颜色主题
      */
     fun setApplicationThemeColor(
-        @ColorRes color: Int = Color.parseColor("#377EB4"),
-        style: DialogStyle = DialogStyle.SweetDialog
+        @ColorRes color: Int = Color.parseColor("#377EB4"), style: DialogStyle = DialogStyle.SweetDialog
     ) {
         logoColor = color
         dialogStyle = style
     }
 
+    fun addActivity(activity: BaseActivity) {
+        activities.add(activity)
+    }
+
+    fun removeActivity(activity: BaseActivity): Boolean = activities.remove(activity)
+
+    fun closeAllActivities() {
+        activities.forEach { it.finish() }
+        activities.clear()
+    }
 
     /**
      * Application初始化工作放在此处

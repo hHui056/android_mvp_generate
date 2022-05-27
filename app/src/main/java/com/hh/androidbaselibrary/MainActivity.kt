@@ -1,5 +1,6 @@
 package com.hh.androidbaselibrary
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.annotation.RequiresApi
@@ -12,6 +13,7 @@ import com.hh.androidbaselibrary.ui.registerView.RegisterViewActivity
 import com.hh.androidbaselibrary.ui.tab.TabLayoutActivity
 import com.hh.androidbaselibrary.ui.titleView.TitleViewActivity
 import com.hh.baselibrary.mvp.BaseActivity
+import com.hh.baselibrary.mvp.BaseApplication
 import com.hh.baselibrary.util.ToastUtil
 import com.hh.baselibrary.widget.option.OptionItemChoiceListener
 import com.hh.baselibrary.widget.option.ShowOptionUtil
@@ -49,6 +51,11 @@ class MainActivity : BaseActivity() {
             jump2Activity(
                 RegisterViewActivity::class.java, false
             )
+        }
+        tab_restart.setOnClickListener {
+            BaseApplication.instance.closeAllActivities()
+            val mIntent = Intent(this@MainActivity, MainActivity::class.java)
+            startActivity(mIntent)
         }
     }
 
