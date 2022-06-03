@@ -92,7 +92,10 @@ class SimpleTreeAdapter<T>(mTree: ListView, context: Context, var datas: List<T>
         }
         if (showAddImage) {
             add.setOnClickListener { editListener?.onAdd(node) }
-            delete.setOnClickListener { editListener?.onDelete(node) }
+            delete.setOnClickListener {
+                editListener?.onDelete(node)
+                swipelayout.close()
+            }
         }
         label.text = node.name
     }
@@ -163,7 +166,7 @@ class SimpleTreeAdapter<T>(mTree: ListView, context: Context, var datas: List<T>
         dataList.forEach {
             selectMap[it.id] = it
         }
-        refreshList(datas,defaultExpandLevel)
+        refreshList(datas, defaultExpandLevel)
     }
 
 }

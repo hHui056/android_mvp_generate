@@ -42,6 +42,9 @@ Add the dependency
     implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
 
 #### 更新日志
+#### V1.22.5
+1、fix 列表左滑操作后不关闭滑动视图的bug
+
 #### V1.22.4
 1、fix 树状目录整体刷新时未生效的bug
 
