@@ -42,6 +42,8 @@ Add the dependency
     implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
 
 #### 更新日志
+#### V1.22.4
+1、fix 树状目录整体刷新时未生效的bug
 
 ##### V1.22.3
 1、BaseApplication中增加对所有Activity的管理

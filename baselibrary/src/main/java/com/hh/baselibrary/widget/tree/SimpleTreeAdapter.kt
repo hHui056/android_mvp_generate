@@ -163,7 +163,7 @@ class SimpleTreeAdapter<T>(mTree: ListView, context: Context, var datas: List<T>
         dataList.forEach {
             selectMap[it.id] = it
         }
-        notifyDataSetChanged()
+        refreshList(datas,defaultExpandLevel)
     }
 
 }

@@ -81,6 +81,12 @@ public abstract class TreeListViewAdapter<T> extends BaseSwipeAdapter {
         }
     }
 
+    public  <T> void refreshList(List<T> datas, int defaultExpandLevel) throws IllegalAccessException {
+        mAllNodes = TreeHelper.getSortedNodes(datas, defaultExpandLevel);
+        mNodes = TreeHelper.filterVisibleNode(mAllNodes);
+        notifyDataSetChanged();
+    }
+
     /**
      * 相应ListView的点击事件 展开或关闭某节点
      *
