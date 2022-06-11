@@ -30,10 +30,10 @@ class SimpleTreeAdapter<T>(mTree: ListView, context: Context, var datas: List<T>
      * 设置是否只有根节点可选择
      */
     var onlyFirstLevelCanChoose = false
-    set(value) {
-        field = value
-        notifyDataSetChanged()
-    }
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
 
     /**
@@ -79,9 +79,9 @@ class SimpleTreeAdapter<T>(mTree: ListView, context: Context, var datas: List<T>
         if (showCheckBox) {
             val a = selectMap[node.id]
             check.isChecked = a!!.select != "0"
-            if (onlyFirstLevelCanChoose){//隐藏其他节点的checkbox
-                check.visibility = if (node.level==0) View.VISIBLE else View.GONE
-            }else{
+            if (onlyFirstLevelCanChoose) {//隐藏其他节点的checkbox
+                check.visibility = if (node.level == 0) View.VISIBLE else View.GONE
+            } else {
                 check.visibility = View.VISIBLE
             }
         } else {
@@ -123,12 +123,21 @@ class SimpleTreeAdapter<T>(mTree: ListView, context: Context, var datas: List<T>
     /**
      * 选中所有一级节点
      */
-    fun chooseAllFirstLevel(){
-        selectMap.filter { it.value.level==0 }.forEach{
+    fun chooseAllFirstLevel() {
+        selectMap.filter { it.value.level == 0 }.forEach {
             it.value.select = "1"
         }
         notifyDataSetChanged()
     }
+
+    /**
+     *取消选中已经选择的项
+     */
+    fun cancelChoose() {
+        selectMap.filter { it.value.select == "1" }.forEach { it.value.select = "0" }
+        notifyDataSetChanged()
+    }
+
 
     /**
      * 编辑监听
