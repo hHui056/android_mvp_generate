@@ -27,6 +27,16 @@ class SimpleTreeAdapter<T>(mTree: ListView, context: Context, var datas: List<T>
     private var dataList: List<Node>
 
     /**
+     * 设置是否只有根节点可选择
+     */
+    var onlyFirstLevelCanChoose = false
+    set(value) {
+        field = value
+        notifyDataSetChanged()
+    }
+
+
+    /**
      * 是否显示checkbox
      */
     private var showCheckBox = false
@@ -67,12 +77,18 @@ class SimpleTreeAdapter<T>(mTree: ListView, context: Context, var datas: List<T>
             icon.setImageResource(node.icon)
         }
         if (showCheckBox) {
-            check.visibility = View.VISIBLE
             val a = selectMap[node.id]
             check.isChecked = a!!.select != "0"
+            if (onlyFirstLevelCanChoose){//隐藏其他节点的checkbox
+                check.visibility = if (node.level==0) View.VISIBLE else View.GONE
+            }else{
+                check.visibility = View.VISIBLE
+            }
         } else {
             check.visibility = View.GONE
         }
+
+
         //最多支持编辑两级
         add.visibility = if (showAddImage && node.level < 2) View.VISIBLE else View.GONE
         swipelayout.isSwipeEnabled = treeType == TreeType.Add
@@ -102,6 +118,16 @@ class SimpleTreeAdapter<T>(mTree: ListView, context: Context, var datas: List<T>
 
     override fun getSwipeLayoutResourceId(position: Int): Int {
         return R.id.swipe_goods_type
+    }
+
+    /**
+     * 选中所有一级节点
+     */
+    fun chooseAllFirstLevel(){
+        selectMap.filter { it.value.level==0 }.forEach{
+            it.value.select = "1"
+        }
+        notifyDataSetChanged()
     }
 
     /**
