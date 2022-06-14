@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:isSupportBack="true"
-        app:title="TitleView1"
+        app:title="红色标题"
         app:titleBackgroundColor="@color/material_deep_teal_50"
         app:titleRightText="右侧文字"
         app:titleTextColor="@color/red_btn_bg_color" />
@@ -27,18 +27,16 @@
         android:id="@+id/title_test"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:backImg="@drawable/alert_bg"
+        app:backImg="@drawable/next"
         app:isSupportBack="true"
-        app:rightImg1="@drawable/alert_bg"
-        app:title="TitleView2"
-        app:titleBackgroundColor="@color/material_deep_teal_50"
-        app:titleTextColor="@color/red_btn_bg_color" />
+        app:title="自定义左侧返回图片"
+        app:titleBackgroundColor="@color/material_deep_teal_50" />
 
     <com.hh.baselibrary.widget.TitleView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:isSupportBack="true"
-        app:title="csdfsdfsfsdf"
+        app:title="Title背景颜色修改"
         app:titleBackgroundColor="@color/material_deep_teal_50"
         app:rightImg1="@drawable/phone"
         app:rightImg2="@drawable/phone"

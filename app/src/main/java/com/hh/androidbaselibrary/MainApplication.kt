@@ -10,6 +10,6 @@ import com.hh.baselibrary.widget.ios.DialogStyle
 class MainApplication : BaseApplication() {
     @SuppressLint("ResourceType")
     override fun init() {
-        setApplicationThemeColor(resources.getColor(R.color.error_stroke_color),DialogStyle.IOS)
+        setApplicationThemeColor(resources.getColor(R.color.action_sheet_blue), DialogStyle.SweetDialog)
     }
 }

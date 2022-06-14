@@ -6,7 +6,7 @@
 
 项目包含的常用组件有：
 
-- MVP基础类：Activity,Fragment，View、Model、Presenter等基类
+- MVP基础类：Activity、Fragment、View、Model、Presenter等基类
 - 常用页面：登录、注册、找回密码等
 - 常用工具：SP、定时器、状态栏、文件读写、时间、字符串校验、常用加密
 - 常用组件：底部Table、顶部状态栏、带红点的TextView、功能列表（支持图片、文字、文字红点）、OptionView、Dialog(支持SweetAlert风格和IOS风格)、
@@ -17,6 +17,11 @@
 - 硬件功能：二维码、条形码扫描识别
 - 事件总线：RxBus
 - so on
+
+#### 演示
+##### baseview基础能力演示
+![IOS风格](./images/baseview1.gif)
+![SweetDialog风格](./images/baseview2.gif)
 
 #### 导入
 
@@ -42,6 +47,7 @@ Add the dependency
     implementation 'com.pnikosis:materialish-progress:1.0'
     implementation 'com.contrarywind:Android-PickerView:4.1.9'
     implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+  	`implementation 'com.daimajia.swipelayout:library:1.2.0@aar'`
 
 #### MVP代码自动生成插件介绍
 基于此基准库提供了自动生成mvp框架代码的插件[插件下载地址](https://gitee.com/allen056/android_base_library/blob/master/%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90MVP%E4%BB%A3%E7%A0%81%E6%8F%92%E4%BB%B6/MvpCodeAutoGeneratPlugin.jar "插件地址") 支持自动目录自定义、activity、fragment、layout、presenter、model、view生成，activity自动注册，省去了很多重复的新建工作，后续会持续更新插件。
@@ -51,29 +57,30 @@ Add the dependency
 
 #### 更新日志
 ##### V1.22.7
-1、树状目录增加一些常用功能
+- 1、树状目录增加一些常用功能
 
 ##### V1.22.5
-1、fix 列表左滑操作后不关闭滑动视图的bug
+- 1、fix 列表左滑操作后不关闭滑动视图的bug
 
 ##### V1.22.4
-1、fix 树状目录整体刷新时未生效的bug
+- 1、fix 树状目录整体刷新时未生效的bug
 
 ##### V1.22.3
-1、BaseApplication中增加对所有Activity的管理
-2、CheckItemView左侧图片大小调整为自适应
-3、增加树状目录到基础库中
-4、调整默认的小号字体为11sp
-5、修改OptionUtil Title显示的字体大小和颜色，OptionUtild点击确定返回position和T
-6、修改版本号命名方式（第一位为大版本、第二位为年份、第三位为递增版本）
+- 1、BaseApplication中增加对所有Activity的管理
+- 2、CheckItemView左侧图片大小调整为自适应
+- 3、增加树状目录到基础库中
+- 4、调整默认的小号字体为11sp
+- 5、修改OptionUtil Title显示的字体大小和颜色，OptionUtild点击确定返回position和T
+- 6、修改版本号命名方式（第一位为大版本、第二位为年份、第三位为递增版本）
 
 ##### V1.0.20
 
-1、优化EditText的扩展方法showText显示double时如果为整数不显示.0
+- 1、优化EditText的扩展方法showText显示double时如果为整数不显示.0
 
 ##### V1.0.19
 
-1、ClickItemView支持右边文字颜色设置 2、修改默认字体大小为12sp(TODO 下个版本增加字体大小可配置)
+- 1、ClickItemView支持右边文字颜色设置
+- 2、修改默认字体大小为12sp(TODO 下个版本增加字体大小可配置)
 
 ##### V1.0.18
 
