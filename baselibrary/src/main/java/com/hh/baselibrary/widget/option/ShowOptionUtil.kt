@@ -55,7 +55,6 @@ class ShowOptionUtil(val context: Context) {
         }
         pvOptions!!.setPicker(list)
         pvOptions!!.show()
-
     }
 
 
