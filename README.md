@@ -47,7 +47,7 @@ Add the dependency
 基于此基准库提供了自动生成mvp框架代码的插件[插件下载地址](https://gitee.com/allen056/android_base_library/blob/master/%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90MVP%E4%BB%A3%E7%A0%81%E6%8F%92%E4%BB%B6/MvpCodeAutoGeneratPlugin.jar "插件地址") 支持自动目录自定义、activity、fragment、layout、presenter、model、view生成，activity自动注册，省去了很多重复的新建工作，后续会持续更新插件。
 
 ##### 插件使用介绍
-![](https://gitee.com/allen056/android_base_library/blob/master/images/%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.gif)
+![插件使用介绍](https://gitee.com/allen056/android_base_library/blob/master/images/%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.gif)
 
 #### 更新日志
 ##### V1.22.7
