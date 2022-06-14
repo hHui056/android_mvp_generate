@@ -11,10 +11,12 @@
 - 常用工具：SP、定时器、状态栏、文件读写、时间、字符串校验、常用加密
 - 常用组件：底部Table、顶部状态栏、带红点的TextView、功能列表（支持图片、文字、文字红点）、OptionView、Dialog(支持SweetAlert风格和IOS风格)、
   MyEditText(自定义文本输入框，支持左边图片右边文字)、底部选项框、Loading框
+- 常用适配器，支持自定义空数据view、左滑更多操作等
 - 网络请求：基于retrofit2封装、支持文件上传
 - 日志模块：支持控制台打印、文件、UDP网络日志（需配置项目中的LogViewer日志工具使用）三种模式
 - 硬件功能：二维码、条形码扫描识别
 - 事件总线：RxBus
+- so on
 
 #### 导入
 
@@ -41,14 +43,18 @@ Add the dependency
     implementation 'com.contrarywind:Android-PickerView:4.1.9'
     implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
 
+#### MVP代码自动生成插件介绍
+基于此基准库提供了自动生成mvp框架代码的插件[插件下载地址](https://gitee.com/allen056/android_base_library/blob/master/%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90MVP%E4%BB%A3%E7%A0%81%E6%8F%92%E4%BB%B6/MvpCodeAutoGeneratPlugin.jar "插件地址") 支持自动目录自定义、activity、fragment、layout、presenter、model、view生成，activity自动注册，省去了很多重复的新建工作，后续会持续更新插件。
+
+
 #### 更新日志
-#### V1.22.7
+##### V1.22.7
 1、树状目录增加一些常用功能
 
-#### V1.22.5
+##### V1.22.5
 1、fix 列表左滑操作后不关闭滑动视图的bug
 
-#### V1.22.4
+##### V1.22.4
 1、fix 树状目录整体刷新时未生效的bug
 
 ##### V1.22.3
