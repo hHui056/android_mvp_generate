@@ -25,19 +25,19 @@
 
 
 #### 使用插件自动构建项目
-- 1、导入插件到AndroidStudio [插件下载地址](https://gitee.com/allen056/android_base_library/blob/master/%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA%E6%8F%92%E4%BB%B6/MvpCodeAutoGeneratPlugin.jar "插件地址")
+##### 1、导入插件到AndroidStudio [插件下载地址](https://gitee.com/allen056/android_base_library/blob/master/%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA%E6%8F%92%E4%BB%B6/MvpCodeAutoGeneratPlugin.jar "插件地址")
 
  将下载好的MvpCodeAutoGeneratPlugin.jar文件拖入AndroidStudio中完成插件安装，此时IDE会提示重启。重启后在项目目录下右键弹出菜单中会增加【项目自动构建工具的菜单】则说明插件安装成功，如下图。
 
 ![插件静态图](./images/screen1.png)
 
-- 2、新建Android项目(注意：新建项目时选择No Activity模板)
+##### 2、新建Android项目(注意：新建项目时选择No Activity模板)
 ![新建项目](./images/createProject.gif)
-- 3、使用插件自动构建项目
+##### 3、使用插件自动构建项目
 ![构建项目](./images/buildProject.gif)
-- 4、项目构建成功，运行看下效果
+##### 4、项目构建成功，运行看下效果
 ![构建项目](./images/runProject.gif)
-- 5、自动生成MVP框架代码
+##### 5、自动生成MVP框架代码
 ![插件使用介绍](./images/buildMVP.gif)
 
 #### 更新日志
