@@ -23,37 +23,22 @@
 ![IOS风格](./images/baseview1.gif)
 ![SweetDialog风格](./images/baseview2.gif)
 
-#### 导入
 
-Add it in your root build.gradle at the end of repositories:
+#### 使用插件自动构建项目
+- 1、导入插件到AndroidStudio [插件下载地址](https://gitee.com/allen056/android_base_library/blob/master/%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA%E6%8F%92%E4%BB%B6/MvpCodeAutoGeneratPlugin.jar "插件地址")
 
-    allprojects {
-    		repositories {
-    			...
-    			maven { url 'https://jitpack.io' }
-    		}
-    	}
+ 将下载好的MvpCodeAutoGeneratPlugin.jar文件拖入AndroidStudio中完成插件安装，此时IDE会提示重启。重启后在项目目录下右键弹出菜单中会增加【项目自动构建工具的菜单】则说明插件安装成功，如下图。
 
-Add the dependency
+![插件静态图](./images/screen1.png)
 
- 	implementation 'com.gitee.allen056:android_base_library:1.22.7'
-	//依赖的其他开源库
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.10'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
-    implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
-    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.0'
-    implementation 'com.squareup.retrofit2:retrofit:2.6.0'
-    implementation 'com.alibaba:fastjson:1.1.70.android'
-    implementation 'com.pnikosis:materialish-progress:1.0'
-    implementation 'com.contrarywind:Android-PickerView:4.1.9'
-    implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
-  	`implementation 'com.daimajia.swipelayout:library:1.2.0@aar'`
-
-#### MVP代码自动生成插件介绍
-基于此基准库提供了自动生成mvp框架代码的插件[插件下载地址](https://gitee.com/allen056/android_base_library/blob/master/%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90MVP%E4%BB%A3%E7%A0%81%E6%8F%92%E4%BB%B6/MvpCodeAutoGeneratPlugin.jar "插件地址") 支持自动目录自定义、activity、fragment、layout、presenter、model、view生成，activity自动注册，省去了很多重复的新建工作，后续会持续更新插件。
-
-##### 插件使用介绍
-![插件使用介绍](./images/demo1.gif)
+- 2、新建Android项目(注意：新建项目时选择No Activity模板)
+![新建项目](./images/createProject.gif)
+- 3、使用插件自动构建项目
+![构建项目](./images/buildProject.gif)
+- 4、项目构建成功，运行看下效果
+![构建项目](./images/runProject.gif)
+- 5、自动生成MVP框架代码
+![插件使用介绍](./images/buildMVP.gif)
 
 #### 更新日志
 ##### V1.22.7
