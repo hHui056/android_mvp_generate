@@ -144,16 +144,23 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
             try {
                 Log.d("pj_log", "check licence result: $it")
                 if (!it.permanentValidity && it.endAt!!.before(Date())) {
-                    alertOption("提示", "应用授权已过期,请联系开发人员", object : MyAlertDialog.AlertClickBack {
-                        override fun onConfirm() = exitProcess(0)
-                        override fun onCancel() = exitProcess(0)
-                    })
+                    alertOutDate()
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
             }
         }, {
             Log.e("pj_log", "check licence fail: ${it.localizedMessage}")
+            if (it.localizedMessage.contains("404")) {
+                alertOutDate()
+            }
+        })
+    }
+
+    private fun alertOutDate() {
+        alertOption("提示", "应用未授权或授权已过期,请联系开发人员", object : MyAlertDialog.AlertClickBack {
+            override fun onConfirm() = exitProcess(0)
+            override fun onCancel() = exitProcess(0)
         })
     }
 }
