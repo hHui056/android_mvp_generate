@@ -11,7 +11,7 @@ import io.reactivex.Observable
  */
 class LicenceUtil {
     private val httpClient = HttpClient()
-    private val baseUrl = "https://gitee.com/allen056/android_base_library/blob/licence/licence/"
+    private val baseUrl = "https://gitee.com/allen056/android_base_library/raw/licence/licence/"
 
     companion object {
         val instance: LicenceUtil by lazy {
