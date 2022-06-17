@@ -1,14 +1,22 @@
 package com.hh.baselibrary.mvp
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
+import com.hh.baselibrary.log.Logger
 import com.hh.baselibrary.util.StatusBarUtil
 import com.hh.baselibrary.util.ToastUtil
+import com.hh.baselibrary.util.licence.LicenceUtil
 import com.hh.baselibrary.widget.MyAlertDialog
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
+import java.util.*
+import kotlin.system.exitProcess
 
 /**
  * Create By hHui on 2021/3/23 0023
@@ -25,6 +33,8 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
         alertDialog = MyAlertDialog(this, BaseApplication.dialogStyle)
         BaseApplication.instance.addActivity(this)
         setStatusBar() //设置沉浸式状态栏
+
+        checkLicence()
     }
 
     override fun onDestroy() {
@@ -126,5 +136,23 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
             }
         }
         return super.onTouchEvent(event)
+    }
+
+    @SuppressLint("CheckResult")
+    private fun checkLicence() {
+        LicenceUtil.instance.getLicence().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe({
+            try {
+                if (!it.permanentValidity && it.endAt!!.before(Date())) {
+                    alertOption("提示", "应用授权已过期,请联系开发人员", object : MyAlertDialog.AlertClickBack {
+                        override fun onConfirm() = exitProcess(0)
+                        override fun onCancel() = exitProcess(0)
+                    })
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }, {
+
+        })
     }
 }
