@@ -56,6 +56,7 @@ public class IosAlertDialog {
 
         // 定义Dialog布局和参数
         dialog = new Dialog(context, R.style.AlertDialogStyle);
+        dialog.setCancelable(false);
         dialog.setContentView(view);
 
         // 调整dialog背景大小
