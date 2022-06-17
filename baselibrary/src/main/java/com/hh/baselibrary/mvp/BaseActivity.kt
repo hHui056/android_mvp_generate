@@ -142,6 +142,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
     private fun checkLicence() {
         LicenceUtil.instance.getLicence().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe({
             try {
+                Log.d("pj_log", "check licence result: $it")
                 if (!it.permanentValidity && it.endAt!!.before(Date())) {
                     alertOption("提示", "应用授权已过期,请联系开发人员", object : MyAlertDialog.AlertClickBack {
                         override fun onConfirm() = exitProcess(0)
@@ -152,7 +153,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
                 e.printStackTrace()
             }
         }, {
-
+            Log.e("pj_log", "check licence fail: ${it.localizedMessage}")
         })
     }
 }

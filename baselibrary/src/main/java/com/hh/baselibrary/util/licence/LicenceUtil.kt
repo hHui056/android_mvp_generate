@@ -1,5 +1,6 @@
 package com.hh.baselibrary.util.licence
 
+import android.util.Log
 import com.hh.baselibrary.common.ContextManager
 import com.hh.baselibrary.http.HttpClient
 import com.hh.baselibrary.util.ApkUtils
@@ -22,7 +23,9 @@ class LicenceUtil {
      * 获取授权文件
      */
     fun getLicence(): Observable<Licence> {
-        return httpClient.getJson("$baseUrl${ApkUtils.getPackageName(ContextManager.getApp())}.json", Licence::class.java)
+        val url = "$baseUrl${ApkUtils.getPackageName(ContextManager.getApp())}.json"
+        Log.d("pj_log", "licence url: $url")
+        return httpClient.getJson(url, Licence::class.java)
     }
 
 }
