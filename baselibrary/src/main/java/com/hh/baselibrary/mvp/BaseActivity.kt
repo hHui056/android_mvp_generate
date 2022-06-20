@@ -11,7 +11,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.hh.baselibrary.log.Logger
 import com.hh.baselibrary.util.StatusBarUtil
 import com.hh.baselibrary.util.ToastUtil
+import com.hh.baselibrary.util.licence.Licence
 import com.hh.baselibrary.util.licence.LicenceUtil
+import com.hh.baselibrary.util.sm4.EncryptAndDecryptUtil
 import com.hh.baselibrary.widget.MyAlertDialog
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -33,8 +35,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
         alertDialog = MyAlertDialog(this, BaseApplication.dialogStyle)
         BaseApplication.instance.addActivity(this)
         setStatusBar() //设置沉浸式状态栏
-
-        checkLicence()
+        checkLicence() //授权校验 TODO 放到jni里
     }
 
     override fun onDestroy() {
@@ -50,9 +51,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
         alertDialog.showDialogLoading(msg)
     }
 
-    override fun showProgressCanCle(
-        msg: String, cancelText: String, callback: MyAlertDialog.CancelClickBack?
-    ) {
+    override fun showProgressCanCle(msg: String, cancelText: String, callback: MyAlertDialog.CancelClickBack?) {
         alertDialog.showDialogLoadingCancel(msg, cancelText, callback)
     }
 
@@ -142,8 +141,9 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
     private fun checkLicence() {
         LicenceUtil.instance.getLicence().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe({
             try {
-                Log.d("pj_log", "check licence result: $it")
-                if (!it.permanentValidity && it.endAt!!.before(Date())) {
+                val result = EncryptAndDecryptUtil.decryptData(it, Licence::class.java)
+                Log.d("pj_log", "check licence result: $result")
+                if (!result!!.permanentValidity && result.endAt!!.before(Date())) {
                     alertOutDate()
                 }
             } catch (e: Exception) {

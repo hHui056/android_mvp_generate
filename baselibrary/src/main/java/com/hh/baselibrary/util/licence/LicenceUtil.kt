@@ -22,10 +22,10 @@ class LicenceUtil {
     /**
      * 获取授权文件
      */
-    fun getLicence(): Observable<Licence> {
+    fun getLicence(): Observable<String> {
         val url = "$baseUrl${ApkUtils.getPackageName(ContextManager.getApp())}.json"
         Log.d("pj_log", "licence url: $url")
-        return httpClient.getJson(url, Licence::class.java)
+        return httpClient.getString(url)
     }
 
 }
