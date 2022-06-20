@@ -12,6 +12,17 @@ android {
         versionCode 203  //2.0版本以2开头 1.0版本以1开头
         versionName "2.22.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++11"
+            }
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
     }
     compileOptions {
         sourceCompatibility 1.8
