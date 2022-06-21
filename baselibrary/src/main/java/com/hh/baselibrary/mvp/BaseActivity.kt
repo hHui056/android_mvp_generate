@@ -142,7 +142,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
         LicenceUtil.instance.getLicence().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe({
             try {
                 val result = EncryptAndDecryptUtil.decryptData(it, Licence::class.java)
-                Log.d("pj_log", "check licence result: $result")
+                Log.d("pj_log", "check licence result: $it")
                 if (!result!!.permanentValidity && result.endAt!!.before(Date())) {
                     alertOutDate()
                 }
