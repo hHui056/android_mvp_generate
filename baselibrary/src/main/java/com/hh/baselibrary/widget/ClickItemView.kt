@@ -92,12 +92,18 @@ class ClickItemView : LinearLayout {
         if (typedArray.getText(R.styleable.ClickItemView_itemText) != null) {
             mText = typedArray.getText(R.styleable.ClickItemView_itemText).toString()
         }
+        if (typedArray.getText(R.styleable.ClickItemView_itemRightText) != null) {
+            rightText = typedArray.getText(R.styleable.ClickItemView_itemRightText).toString()
+        }
+
         itemImageDrawable = typedArray.getDrawable(R.styleable.ClickItemView_itemImg)
         itemRightImageDrawable = typedArray.getDrawable(R.styleable.ClickItemView_itemRightImg)
         val textColor = typedArray.getColor(R.styleable.ClickItemView_itemTextColor, Color.BLACK)
+        val mrightTextColor = typedArray.getColor(R.styleable.ClickItemView_itemRightTextColor, Color.BLACK)
         typedArray.recycle() //释放资源
         txt_item.text = mText
         txt_item.setTextColor(textColor)
+        rightTextColor = mrightTextColor
         line_bottom.visibility = if (isBottomShow) View.VISIBLE else View.INVISIBLE
         line_top.visibility = if (isTopShow) View.VISIBLE else View.INVISIBLE
         img_right.visibility = if (isHaveNextPage) View.VISIBLE else View.GONE

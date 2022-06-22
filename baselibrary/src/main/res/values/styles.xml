@@ -28,11 +28,12 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/smallTextSize</item>
     </style>
+
     <declare-styleable name="NormalRecyclerView">
         <!--是否显示分割线-->
-        <attr name="showItemDecoration" format="boolean"/>
+        <attr name="showItemDecoration" format="boolean" />
         <!--显示grid时每一行显示条数-->
-        <attr name="gridLineNumber" format="integer"/>
+        <attr name="gridLineNumber" format="integer" />
         <!--显示类型-->
         <attr name="showType">
             <!--列表-->
@@ -140,6 +141,10 @@
         <attr name="itemRightImg" format="reference" />
         <!--item文字颜色-->
         <attr name="itemTextColor" format="color" />
+        <!--item右边文字-->
+        <attr name="itemRightText" format="string" />
+        <!--item右边文字颜色-->
+        <attr name="itemRightTextColor" format="color" />
     </declare-styleable>
     <declare-styleable name="LoginView">
         <!--是否支持用户注册 默认true-->

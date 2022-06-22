@@ -11,7 +11,7 @@ import io.reactivex.Observable
  */
 class LicenceUtil {
     private val httpClient = HttpClient()
-    private val baseUrl = "https://gitee.com/allen056/android_base_library/raw/licence/licence/"
+    private val baseUrl = "https://gitee.com/allen056/android_base_library/raw/master/licence/"
 
     companion object {
         val instance: LicenceUtil by lazy {
@@ -24,7 +24,6 @@ class LicenceUtil {
      */
     fun getLicence(): Observable<String> {
         val url = "$baseUrl${ApkUtils.getPackageName(ContextManager.getApp())}.json"
-        Log.d("pj_log", "licence url: $url")
         return httpClient.getString(url)
     }
 
