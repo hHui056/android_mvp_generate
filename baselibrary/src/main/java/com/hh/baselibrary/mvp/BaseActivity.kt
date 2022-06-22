@@ -12,6 +12,7 @@ import com.hh.baselibrary.log.Logger
 import com.hh.baselibrary.util.StatusBarUtil
 import com.hh.baselibrary.util.ToastUtil
 import com.hh.baselibrary.util.licence.Licence
+import com.hh.baselibrary.util.licence.LicenceConstantsUtil
 import com.hh.baselibrary.util.licence.LicenceUtil
 import com.hh.baselibrary.util.sm4.EncryptAndDecryptUtil
 import com.hh.baselibrary.widget.MyAlertDialog
@@ -36,6 +37,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
         BaseApplication.instance.addActivity(this)
         setStatusBar() //设置沉浸式状态栏
         checkLicence() //授权校验
+        Log.d("pj_log", "通过JNI获取到的常量 ${LicenceConstantsUtil.getInstance().licenceUrl}")
     }
 
     override fun onDestroy() {
