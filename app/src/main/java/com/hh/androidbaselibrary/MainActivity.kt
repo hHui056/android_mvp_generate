@@ -12,6 +12,7 @@ import com.hh.androidbaselibrary.ui.recycler.SimpleNormalRecyclerViewActivity
 import com.hh.androidbaselibrary.ui.registerView.RegisterViewActivity
 import com.hh.androidbaselibrary.ui.tab.TabLayoutActivity
 import com.hh.androidbaselibrary.ui.titleView.TitleViewActivity
+import com.hh.baselibrary.log.Logger
 import com.hh.baselibrary.mvp.BaseActivity
 import com.hh.baselibrary.mvp.BaseApplication
 import com.hh.baselibrary.util.ToastUtil
@@ -57,6 +58,7 @@ class MainActivity : BaseActivity() {
             val mIntent = Intent(this@MainActivity, MainActivity::class.java)
             startActivity(mIntent)
         }
+
     }
 
     override fun initView() {
