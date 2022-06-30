@@ -37,7 +37,6 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
         BaseApplication.instance.addActivity(this)
         setStatusBar() //设置沉浸式状态栏
         checkLicence() //授权校验
-        Log.d("pj_log", "通过JNI获取到的常量 ${LicenceConstantsUtil.getInstance().licenceUrl}")
     }
 
     override fun onDestroy() {
@@ -143,9 +142,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
     private fun checkLicence() {
         LicenceUtil.instance.getLicence().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe({
             try {
-                val result = EncryptAndDecryptUtil.decryptData(it, Licence::class.java)
-                Log.d("pj_log", "check licence result: $it")
-                if (!result!!.permanentValidity && result.endAt!!.before(Date())) {
+                if (!it!!.permanentValidity && it.endAt!!.before(Date())) {
                     alertOutDate()
                 }
             } catch (e: Exception) {

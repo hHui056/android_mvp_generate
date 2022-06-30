@@ -4,6 +4,7 @@ import android.util.Log
 import com.hh.baselibrary.common.ContextManager
 import com.hh.baselibrary.http.HttpClient
 import com.hh.baselibrary.util.ApkUtils
+import com.hh.baselibrary.util.sm4.EncryptAndDecryptUtil
 import io.reactivex.Observable
 
 /**
@@ -22,9 +23,12 @@ class LicenceUtil {
     /**
      * 获取授权文件
      */
-    fun getLicence(): Observable<String> {
+    fun getLicence(): Observable<Licence> {
         val url = "$baseUrl${ApkUtils.getPackageName(ContextManager.getApp())}.json"
-        return httpClient.getString(url)
+        return httpClient.getString(url).map {
+            Log.d("pj_log", "check licence result: $it")
+            val result = EncryptAndDecryptUtil.decryptData(it, Licence::class.java)
+            result
+        }
     }
-
 }

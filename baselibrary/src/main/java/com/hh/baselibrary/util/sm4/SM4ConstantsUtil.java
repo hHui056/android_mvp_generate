@@ -11,6 +11,7 @@ public class SM4ConstantsUtil {
             instance = new SM4ConstantsUtil();
         return instance;
     }
+    
     static {
         System.loadLibrary("sm4");
     }

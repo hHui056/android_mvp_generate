@@ -5,20 +5,28 @@
     android:layout_height="wrap_content"
     android:paddingVertical="@dimen/base_dimen_18">
 
-    <ImageView
-        android:id="@+id/back"
-        android:layout_width="@dimen/base_dimen_48"
-        android:layout_height="@dimen/base_dimen_48"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="@dimen/base_dimen_24"
-        android:src="@drawable/back" />
+    <RelativeLayout
+        android:id="@+id/layout_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/base_dimen_12"
+        android:padding="@dimen/base_dimen_12">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="@dimen/base_dimen_48"
+            android:layout_height="@dimen/base_dimen_48"
+            android:layout_centerInParent="true"
+            android:src="@drawable/back" />
+    </RelativeLayout>
+
 
     <TextView
         android:id="@+id/txt_left"
         style="@style/title_text_style"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/base_dimen_20"
-        android:layout_toRightOf="@+id/back"
+        android:layout_toRightOf="@+id/layout_back"
         android:textSize="@dimen/normalTextSize"
         android:visibility="gone" />
 
@@ -29,30 +37,53 @@
         android:textSize="@dimen/normalTextSize"
         android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/img_right1"
-        android:layout_width="@dimen/base_dimen_36"
-        android:layout_height="@dimen/base_dimen_36"
-        android:layout_centerVertical="true"
+    <RelativeLayout
+        android:id="@+id/layout_right1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/base_dimen_30"
-        android:layout_toLeftOf="@+id/img_right2"
-        android:visibility="gone" />
+        android:layout_toLeftOf="@+id/layout_right2"
+        android:padding="@dimen/base_dimen_12"
+        android:visibility="gone">
 
-    <ImageView
-        android:id="@+id/img_right2"
-        android:layout_width="@dimen/base_dimen_36"
-        android:layout_height="@dimen/base_dimen_36"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="@dimen/base_dimen_30"
-        android:visibility="gone" />
+        <ImageView
+            android:id="@+id/img_right1"
+            android:layout_width="@dimen/base_dimen_36"
+            android:layout_height="@dimen/base_dimen_36"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
 
-    <TextView
-        android:id="@+id/txt_right"
-        style="@style/title_text_style"
+    <RelativeLayout
+        android:id="@+id/layout_right2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
         android:layout_marginRight="@dimen/base_dimen_30"
-        android:textSize="@dimen/normalTextSize"
-        android:visibility="gone" />
+        android:padding="@dimen/base_dimen_12"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/img_right2"
+            android:layout_width="@dimen/base_dimen_36"
+            android:layout_height="@dimen/base_dimen_36"
+            android:layout_centerInParent="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_right_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/base_dimen_30"
+        android:padding="@dimen/base_dimen_12"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/txt_right"
+            style="@style/title_text_style"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/normalTextSize" />
+    </RelativeLayout>
+
 </RelativeLayout>

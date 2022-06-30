@@ -123,16 +123,17 @@ class TitleView : LinearLayout {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         inflater.inflate(R.layout.title_layout, this)
 
-        back.setOnClickListener {
+        layout_back.setOnClickListener {
             val activity = context as BaseActivity
             activity.miss()
         }
 
-        img_right1.setOnClickListener { titleRightImage1ClickListener?.onClick() }
-        img_right2.setOnClickListener { titleRightImage2ClickListener?.onClick() }
-        txt_right.setOnClickListener { titleRightTextClickListener?.onClick() }
+        layout_right1.setOnClickListener { titleRightImage1ClickListener?.onClick() }
+        layout_right2.setOnClickListener { titleRightImage2ClickListener?.onClick() }
+        layout_right_text.setOnClickListener { titleRightTextClickListener?.onClick() }
     }
 
+    @SuppressLint("ResourceAsColor")
     private fun initText(context: Context, attrs: AttributeSet) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.TitleView)
         //标题
@@ -163,19 +164,19 @@ class TitleView : LinearLayout {
         //设置标题
         title = mText
         //是否显示返回按钮
-        back.visibility = if (isSupportBack) View.VISIBLE else View.GONE
+        layout_back.visibility = if (isSupportBack) View.VISIBLE else View.GONE
         //右边图片1
         if (rightImageDrawable1 == null) {
-            img_right1.visibility = View.GONE
+            layout_right1.visibility = View.GONE
         } else {
-            img_right1.visibility = View.VISIBLE
+            layout_right1.visibility = View.VISIBLE
             img_right1.setImageDrawable(rightImageDrawable1)
         }
         //右边图片2
         if (rightImageDrawable2 == null) {
-            img_right2.visibility = View.GONE
+            layout_right2.visibility = View.GONE
         } else {
-            img_right2.visibility = View.VISIBLE
+            layout_right2.visibility = View.VISIBLE
             img_right2.setImageDrawable(rightImageDrawable2)
         }
         //设置返回的图片（默认为向左的箭头）
@@ -184,10 +185,10 @@ class TitleView : LinearLayout {
         }
         //设置右边文字
         if (rightText != null) {
-            txt_right.visibility = View.VISIBLE
+            layout_right_text.visibility = View.VISIBLE
             txt_right.text = rightText
         } else {
-            txt_right.visibility = View.GONE
+            layout_right_text.visibility = View.GONE
         }
     }
 
