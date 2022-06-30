@@ -10,6 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/base_dimen_12"
+        android:layout_centerVertical="true"
         android:padding="@dimen/base_dimen_12">
 
         <ImageView
@@ -34,7 +35,7 @@
         android:id="@+id/m_title"
         style="@style/title_text_style"
         android:layout_centerInParent="true"
-        android:textSize="@dimen/normalTextSize"
+        android:textSize="@dimen/bigTextSize"
         android:textStyle="bold" />
 
     <RelativeLayout
@@ -43,6 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/base_dimen_30"
         android:layout_toLeftOf="@+id/layout_right2"
+        android:layout_centerVertical="true"
         android:padding="@dimen/base_dimen_12"
         android:visibility="gone">
 
@@ -58,6 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         android:layout_marginRight="@dimen/base_dimen_30"
         android:padding="@dimen/base_dimen_12"
         android:visibility="gone">
@@ -75,6 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         android:layout_marginRight="@dimen/base_dimen_30"
         android:padding="@dimen/base_dimen_12"
         android:visibility="gone">

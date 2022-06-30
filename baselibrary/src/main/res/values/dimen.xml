@@ -6,7 +6,7 @@
     <dimen name="logoSize">100dp</dimen>
     <dimen name="normalTextSize">12sp</dimen>
     <dimen name="smallTextSize">11sp</dimen>
-    <dimen name="bigTextSize">18sp</dimen>
+    <dimen name="bigTextSize">16sp</dimen>
     <dimen name="mSmallTop">8dp</dimen>
     <dimen name="normalTop">26dp</dimen>
     <dimen name="bigTop">36dp</dimen>
