@@ -54,9 +54,9 @@ class TitleView : LinearLayout {
             field = value
             txt_right.text = value
             if (value != "") {
-                txt_right.visibility = View.VISIBLE
+                layout_right_text.visibility = View.VISIBLE
             } else {
-                txt_right.visibility = View.GONE
+                layout_right_text.visibility = View.GONE
             }
         }
         get() {
