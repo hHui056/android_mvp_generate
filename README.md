@@ -18,11 +18,6 @@
 - 事件总线：RxBus
 - so on
 
-#### 演示
-##### baseview基础能力演示
-![IOS风格](./images/baseview1.gif)
-![SweetDialog风格](./images/baseview2.gif)
-
 
 #### 使用插件自动构建项目
 ##### 1、导入插件到AndroidStudio [插件下载地址](https://gitee.com/allen056/android_base_library/blob/master/%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA%E6%8F%92%E4%BB%B6/MvpCodeAutoGeneratPlugin.jar "插件地址")
