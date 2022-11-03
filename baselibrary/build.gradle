@@ -9,8 +9,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 26
-        versionCode 207  //2.0版本以2开头 1.0版本以1开头
-        versionName "2.22.7"
+        versionCode 109  //2.0版本以2开头 1.0版本以1开头
+        versionName "1.22.9"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
