@@ -5,7 +5,6 @@ apply plugin: 'com.github.dcendents.android-maven'
 group = 'com.gitee.android_base_library'
 android {
     compileSdkVersion 26
-
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 26
