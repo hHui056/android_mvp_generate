@@ -7,15 +7,14 @@ import com.hh.baselibrary.widget.MyAlertDialog
  */
 interface BaseContract {
 
-    interface Presenter{
+    interface Presenter {
         fun create()
         fun start()
         fun stop()
     }
 
-
     interface View {
-        fun showProgressCanCle(msg: String = "Loading",cancelText:String = "取消",callback: MyAlertDialog.CancelClickBack?=null)
+        fun showProgressCanCle(msg: String = "Loading", cancelText: String = "取消", callback: MyAlertDialog.CancelClickBack? = null)
         fun showProgress(msg: String = "Loading...")
         fun closeProgress()
         fun alertSuccess(msg: String)
@@ -26,7 +25,7 @@ interface BaseContract {
         fun miss()
     }
 
-    interface Model{
+    interface Model {
 
     }
 }

@@ -95,7 +95,6 @@ public class ApkUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.setDataAndType(Uri.parse("file://" + dir), "application/vnd.android.package-archive");

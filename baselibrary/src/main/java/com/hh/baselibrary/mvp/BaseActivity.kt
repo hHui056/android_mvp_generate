@@ -8,13 +8,9 @@ import android.util.Log
 import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
-import com.hh.baselibrary.log.Logger
 import com.hh.baselibrary.util.StatusBarUtil
 import com.hh.baselibrary.util.ToastUtil
-import com.hh.baselibrary.util.licence.Licence
-import com.hh.baselibrary.util.licence.LicenceConstantsUtil
 import com.hh.baselibrary.util.licence.LicenceUtil
-import com.hh.baselibrary.util.sm4.EncryptAndDecryptUtil
 import com.hh.baselibrary.widget.MyAlertDialog
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
