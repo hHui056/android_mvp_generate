@@ -20,7 +20,7 @@ abstract class BaseApplication : Application() {
         lateinit var instance: BaseApplication
 
         //主题颜色
-        @SuppressLint("ResourceAsColor")
+        @SuppressLint("ResourceType")
         @ColorRes
         var logoColor: Int = Color.parseColor("#377EB4")
             private set
@@ -44,7 +44,7 @@ abstract class BaseApplication : Application() {
      * 设置APP主题颜色，弹窗风格，如果不使用则使用默认颜色主题
      */
     fun setApplicationThemeColor(
-        @ColorRes color: Int = Color.parseColor("#377EB4"), style: DialogStyle = DialogStyle.SweetDialog
+        @SuppressLint("ResourceType") @ColorRes color: Int = Color.parseColor("#377EB4"), style: DialogStyle = DialogStyle.SweetDialog
     ) {
         logoColor = color
         dialogStyle = style
