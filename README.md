@@ -36,6 +36,9 @@
 ![插件使用介绍](./images/buildMVP.gif)
 
 #### 更新日志
+##### V1.22.10
+- 1、替换key-value存储方案为微信开源的MMKV，使用参照 com.hh.baselibrary.util.MMKVUtil
+
 ##### V1.22.9
 - 1、树状目录增加一些常用功能
 - 2、fix TitleView右侧文字某些情况下不显示的bug

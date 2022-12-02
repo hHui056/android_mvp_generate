@@ -7,6 +7,7 @@ import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import com.hh.baselibrary.common.ContextManager
 import com.hh.baselibrary.widget.ios.DialogStyle
+import com.tencent.mmkv.MMKV
 
 /**
  * Create By hHui on 2021/11/2
@@ -37,6 +38,7 @@ abstract class BaseApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         ContextManager.setApp(applicationContext)
+        MMKV.initialize(this)
         init()
     }
 
