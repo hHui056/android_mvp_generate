@@ -1,6 +1,7 @@
 package com.hh.baselibrary.util;
 
 import com.alibaba.fastjson.JSON;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -56,6 +57,5 @@ public final class BeanMapper {
             return null;
         }
     }
-
 }
 

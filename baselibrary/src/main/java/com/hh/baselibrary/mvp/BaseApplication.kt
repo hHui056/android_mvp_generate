@@ -3,7 +3,6 @@ package com.hh.baselibrary.mvp
 import android.annotation.SuppressLint
 import android.app.Application
 import android.graphics.Color
-import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import com.hh.baselibrary.common.ContextManager
 import com.hh.baselibrary.widget.ios.DialogStyle
