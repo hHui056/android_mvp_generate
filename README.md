@@ -36,6 +36,10 @@
 ![插件使用介绍](./images/buildMVP.gif)
 
 #### 更新日志
+##### V1.22.11
+
+
+
 ##### V1.22.10
 - 1、替换key-value存储方案为微信开源的MMKV，使用参照 com.hh.baselibrary.util.MMKVUtil
 

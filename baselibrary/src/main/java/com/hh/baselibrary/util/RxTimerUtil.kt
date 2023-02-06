@@ -35,6 +35,8 @@ class RxTimerUtil {
                 })
     }
 
+
+
     /** 取消定时器 **/
     fun cancel() {
         if (mDisposable != null && !mDisposable!!.isDisposed) {
