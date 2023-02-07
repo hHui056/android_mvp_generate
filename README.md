@@ -36,7 +36,7 @@
 ![插件使用介绍](./images/buildMVP.gif)
 
 #### 更新日志
-##### V1.22.11
+##### V1.23.0
 
 
 
@@ -76,10 +76,8 @@
 
 - 1、1.0.18 bugfix
 - 2、初始化NormalRecyclerView时支持不传无数据显示View
+- 3、封装recylerView封装，支持显示无数据view自定义
 
-##### V1.0.18
-
-- 1、封装recylerView封装，支持显示无数据view自定义
 
 ##### V1.0.17
 

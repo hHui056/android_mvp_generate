@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.layout_table.view.*
  * Created by hHui on 2020/1/8 0008.
  *
  *
- * 一般用于底部Table也导航切换
+ * 一般用于底部Table页导航切换
  */
 class TableView : LinearLayout {
 
@@ -62,9 +62,7 @@ class TableView : LinearLayout {
     constructor(context: Context) : super(context)
 
     constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
-        context,
-        attrs,
-        defStyle
+        context, attrs, defStyle
     ) {
         initText(context, attrs)
     }
