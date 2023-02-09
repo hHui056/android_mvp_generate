@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.annotation.RequiresApi
-import androidx.core.view.marginRight
 import com.hh.androidbaselibrary.test.Person
 import com.hh.androidbaselibrary.ui.baseView.BaseViewActivity
 import com.hh.androidbaselibrary.ui.loginView.LoginViewActivity
@@ -12,7 +11,6 @@ import com.hh.androidbaselibrary.ui.recycler.SimpleNormalRecyclerViewActivity
 import com.hh.androidbaselibrary.ui.registerView.RegisterViewActivity
 import com.hh.androidbaselibrary.ui.tab.TabLayoutActivity
 import com.hh.androidbaselibrary.ui.titleView.TitleViewActivity
-import com.hh.baselibrary.log.Logger
 import com.hh.baselibrary.mvp.BaseActivity
 import com.hh.baselibrary.mvp.BaseApplication
 import com.hh.baselibrary.util.ToastUtil

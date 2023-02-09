@@ -50,6 +50,9 @@ class TableView : LinearLayout {
             }
         }
 
+    /**
+     * 标题
+     */
     var title: String = ""
         get() {
             return table_name.text.toString().trim()

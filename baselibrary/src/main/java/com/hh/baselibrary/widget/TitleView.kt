@@ -153,8 +153,7 @@ class TitleView : LinearLayout {
         val titleBackgroundColor = typedArray.getColor(
             R.styleable.TitleView_titleBackgroundColor, BaseApplication.logoColor
         )
-        val titleTextColor =
-            typedArray.getColor(R.styleable.TitleView_titleTextColor, R.color.white)
+        val titleTextColor = typedArray.getColor(R.styleable.TitleView_titleTextColor, R.color.white)
         typedArray.recycle()
         //设置文字颜色和背景颜色
         this.titleBackgroundColor = titleBackgroundColor

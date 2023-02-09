@@ -116,3 +116,24 @@ fun EditText.showText(content: Any?) {
 fun String.deleteLastChar(): String {
     return this.substring(0, this.length - 1)
 }
+
+/**
+ * 获取 后[minute]分钟
+ */
+fun Date.rollMinute(minute: Int): Date {
+    return Date(this.time + minute * 60 * 1000)
+}
+
+/**
+ * 获取前[minute]分钟的时间
+ */
+fun Date.beforeMinute(minute: Int): Date {
+    return Date(this.time - minute * 60 * 1000)
+}
+
+/**
+ * string转UUID
+ */
+fun String.toUUID(): UUID {
+    return UUID.fromString(this)
+}
