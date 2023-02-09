@@ -14,6 +14,7 @@ import com.hh.androidbaselibrary.ui.titleView.TitleViewActivity
 import com.hh.baselibrary.mvp.BaseActivity
 import com.hh.baselibrary.mvp.BaseApplication
 import com.hh.baselibrary.util.ToastUtil
+import com.hh.baselibrary.widget.MyAlertDialog
 import com.hh.baselibrary.widget.option.OptionItemChoiceListener
 import com.hh.baselibrary.widget.option.ShowOptionUtil
 import kotlinx.android.synthetic.main.activity_main.*
@@ -56,6 +57,7 @@ class MainActivity : BaseActivity() {
             val mIntent = Intent(this@MainActivity, MainActivity::class.java)
             startActivity(mIntent)
         }
+
 
     }
 

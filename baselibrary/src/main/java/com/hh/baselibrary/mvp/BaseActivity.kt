@@ -32,7 +32,6 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
         alertDialog = MyAlertDialog(this, BaseApplication.dialogStyle)
         BaseApplication.instance.addActivity(this)
         setStatusBar() //设置沉浸式状态栏
-        checkLicence() //授权校验
     }
 
     override fun onDestroy() {
