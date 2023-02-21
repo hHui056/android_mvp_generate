@@ -18,7 +18,6 @@ abstract class BaseApplication : Application() {
 
     companion object {
         lateinit var instance: BaseApplication
-
         //主题颜色
         @SuppressLint("ResourceType")
         @ColorRes
@@ -30,12 +29,10 @@ abstract class BaseApplication : Application() {
             private set
     }
 
-    init {
-        instance = this
-    }
 
     override fun onCreate() {
         super.onCreate()
+        instance = this
         ContextManager.setApp(applicationContext)
         MMKV.initialize(this)
         init()
@@ -45,7 +42,8 @@ abstract class BaseApplication : Application() {
      * 设置APP主题颜色，弹窗风格，如果不使用则使用默认颜色主题
      */
     fun setApplicationThemeColor(
-        @SuppressLint("ResourceType") @ColorRes color: Int = Color.parseColor("#377EB4"), style: DialogStyle = DialogStyle.SweetDialog
+        @SuppressLint("ResourceType") @ColorRes color: Int = Color.parseColor("#377EB4"),
+        style: DialogStyle = DialogStyle.SweetDialog
     ) {
         logoColor = color
         dialogStyle = style

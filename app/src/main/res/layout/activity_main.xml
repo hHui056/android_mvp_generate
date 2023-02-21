@@ -85,6 +85,14 @@
         app:itemText="封装RecyclerView(支持无数据时提示)" />
 
     <com.hh.baselibrary.widget.ClickItemView
+        android:id="@+id/tab_data_store"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isBottomLineShow="true"
+        app:isTopLineShow="false"
+        app:itemText="使用DataStore存储键值对" />
+
+    <com.hh.baselibrary.widget.ClickItemView
         android:id="@+id/tab_restart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

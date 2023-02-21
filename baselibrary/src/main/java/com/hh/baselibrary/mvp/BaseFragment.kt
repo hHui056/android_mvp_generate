@@ -40,7 +40,7 @@ abstract class BaseFragment : Fragment(), BaseContract.View {
     }
 
 
-    override fun showProgress(msg: MyAlertDialog.CancelClickBack) {
+    override fun showProgress(msg: String) {
         baseActivity.showProgress(msg)
     }
 

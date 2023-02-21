@@ -17,9 +17,9 @@
 - 硬件功能：二维码、条形码扫描识别
 - 事件总线：RxBus
 - so on
-
-
 #### 使用插件自动构建项目
+*****以下预览图包含GIF图,请登录后查看 *****
+
 ##### 1、导入插件到AndroidStudio [插件下载地址](https://gitee.com/allen056/mvp_generate_plugin/raw/master/MvpCodeAutoGeneratPlugin.jar "插件地址")
 
  将下载好的MvpCodeAutoGeneratPlugin.jar文件拖入AndroidStudio中完成插件安装，此时IDE会提示重启。重启后在项目目录下右键弹出菜单中会增加【项目自动构建工具的菜单】则说明插件安装成功，如下图。
