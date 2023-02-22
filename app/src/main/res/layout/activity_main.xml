@@ -31,20 +31,6 @@
         app:itemText="BaseView基础能力展示" />
 
     <com.hh.baselibrary.widget.ClickItemView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:isBottomLineShow="true"
-        app:isTopLineShow="false"
-        app:itemText="ChickItemView" />
-
-    <com.hh.baselibrary.widget.ClickItemView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:isBottomLineShow="true"
-        app:isTopLineShow="false"
-        app:itemText="MyEditText" />
-
-    <com.hh.baselibrary.widget.ClickItemView
         android:id="@+id/item_login_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

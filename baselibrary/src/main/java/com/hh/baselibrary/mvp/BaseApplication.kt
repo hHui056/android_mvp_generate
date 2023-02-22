@@ -6,7 +6,6 @@ import android.graphics.Color
 import androidx.annotation.ColorRes
 import com.hh.baselibrary.common.ContextManager
 import com.hh.baselibrary.widget.ios.DialogStyle
-import com.tencent.mmkv.MMKV
 
 /**
  * Create By hHui on 2021/11/2
@@ -18,6 +17,7 @@ abstract class BaseApplication : Application() {
 
     companion object {
         lateinit var instance: BaseApplication
+
         //主题颜色
         @SuppressLint("ResourceType")
         @ColorRes
@@ -34,7 +34,6 @@ abstract class BaseApplication : Application() {
         super.onCreate()
         instance = this
         ContextManager.setApp(applicationContext)
-        MMKV.initialize(this)
         init()
     }
 

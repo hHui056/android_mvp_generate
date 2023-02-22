@@ -37,7 +37,6 @@ class DataStoreActivity : BaseActivity(), DataStoreContract.View {
 
         }
     }
-
     /**
      *是否启用透明状态栏 true->启用 false->不启用
      */
