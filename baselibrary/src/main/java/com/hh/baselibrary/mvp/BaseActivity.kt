@@ -31,7 +31,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
         super.onCreate(savedInstanceState)
         alertDialog = MyAlertDialog(this, BaseApplication.dialogStyle)
         BaseApplication.instance.addActivity(this)
-        setStatusBar() //设置沉浸式状态栏
+        setStatusBar()
     }
 
     override fun onDestroy() {
@@ -47,7 +47,11 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
         alertDialog.showDialogLoading(msg)
     }
 
-    override fun showProgressCanCle(msg: String, cancelText: String, callback: MyAlertDialog.CancelClickBack?) {
+    override fun showProgressCanCle(
+        msg: String,
+        cancelText: String,
+        callback: MyAlertDialog.CancelClickBack?
+    ) {
         alertDialog.showDialogLoadingCancel(msg, cancelText, callback)
     }
 
@@ -64,7 +68,11 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
     }
 
     override fun alertOption(
-        title: String, msg: String, callback: MyAlertDialog.AlertClickBack, cancel: String, sure: String
+        title: String,
+        msg: String,
+        callback: MyAlertDialog.AlertClickBack,
+        cancel: String,
+        sure: String
     ) {
         alertDialog.alertOption(title, msg, callback, cancel, sure)
     }
@@ -135,20 +143,21 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
 
     @SuppressLint("CheckResult")
     private fun checkLicence() {
-        LicenceUtil.instance.getLicence().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe({
-            try {
-                if (!it!!.permanentValidity && it.endAt!!.before(Date())) {
+        LicenceUtil.instance.getLicence().subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread()).subscribe({
+                try {
+                    if (!it!!.permanentValidity && it.endAt!!.before(Date())) {
+                        alertOutDate()
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }, {
+                Log.e("pj_log", "check licence fail: ${it.localizedMessage}")
+                if (it.localizedMessage.contains("404")) {
                     alertOutDate()
                 }
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }, {
-            Log.e("pj_log", "check licence fail: ${it.localizedMessage}")
-            if (it.localizedMessage.contains("404")) {
-                alertOutDate()
-            }
-        })
+            })
     }
 
     private fun alertOutDate() {

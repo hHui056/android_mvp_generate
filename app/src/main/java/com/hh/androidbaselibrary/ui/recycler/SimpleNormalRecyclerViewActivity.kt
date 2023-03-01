@@ -2,11 +2,9 @@ package com.hh.androidbaselibrary.ui.recycler
 
 import android.os.Bundle
 import android.widget.TextView
-import com.hh.androidbaselibrary.MainApplication
 import com.hh.androidbaselibrary.R
-import com.hh.androidbaselibrary.test.Person
+import com.hh.androidbaselibrary.bean.Person
 import com.hh.baselibrary.mvp.BaseActivity
-import com.hh.baselibrary.mvp.BaseApplication
 import com.hh.baselibrary.util.common.RecyclerItemElementClickListener
 import com.hh.baselibrary.util.common.RecyclerViewItemClickListener
 import com.hh.baselibrary.widget.recycler.NormalRecyclerView

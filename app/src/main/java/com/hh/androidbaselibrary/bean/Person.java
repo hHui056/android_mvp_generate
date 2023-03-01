@@ -1,4 +1,4 @@
-package com.hh.androidbaselibrary.test;
+package com.hh.androidbaselibrary.bean;
 
 import com.hh.baselibrary.widget.option.ShowString;
 

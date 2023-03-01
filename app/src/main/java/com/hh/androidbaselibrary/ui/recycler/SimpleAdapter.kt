@@ -3,13 +3,10 @@ package com.hh.androidbaselibrary.ui.recycler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
 import com.hh.androidbaselibrary.R
-import com.hh.androidbaselibrary.test.Person
+import com.hh.androidbaselibrary.bean.Person
 import com.hh.baselibrary.mvp.BaseActivity
-import com.hh.baselibrary.util.common.RecyclerViewItemClickListener
 import com.hh.baselibrary.widget.recycler.MBaseAdapter
 
 /**

@@ -79,6 +79,14 @@
         app:itemText="使用DataStore存储键值对" />
 
     <com.hh.baselibrary.widget.ClickItemView
+        android:id="@+id/tab_object_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isBottomLineShow="true"
+        app:isTopLineShow="false"
+        app:itemText="ObjectBox示例" />
+
+    <com.hh.baselibrary.widget.ClickItemView
         android:id="@+id/tab_restart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

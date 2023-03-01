@@ -4,10 +4,11 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.annotation.RequiresApi
-import com.hh.androidbaselibrary.test.Person
+import com.hh.androidbaselibrary.bean.Person
 import com.hh.androidbaselibrary.ui.baseView.BaseViewActivity
 import com.hh.androidbaselibrary.ui.dataStore.view.DataStoreActivity
 import com.hh.androidbaselibrary.ui.loginView.LoginViewActivity
+import com.hh.androidbaselibrary.ui.objectBox.view.ObjectBoxActivity
 import com.hh.androidbaselibrary.ui.recycler.SimpleNormalRecyclerViewActivity
 import com.hh.androidbaselibrary.ui.registerView.RegisterViewActivity
 import com.hh.androidbaselibrary.ui.tab.TabLayoutActivity
@@ -15,7 +16,6 @@ import com.hh.androidbaselibrary.ui.titleView.TitleViewActivity
 import com.hh.baselibrary.mvp.BaseActivity
 import com.hh.baselibrary.mvp.BaseApplication
 import com.hh.baselibrary.util.ToastUtil
-import com.hh.baselibrary.widget.MyAlertDialog
 import com.hh.baselibrary.widget.option.OptionItemChoiceListener
 import com.hh.baselibrary.widget.option.ShowOptionUtil
 import kotlinx.android.synthetic.main.activity_main.*
@@ -48,6 +48,8 @@ class MainActivity : BaseActivity() {
         item_dialog.setOnClickListener { jump2Activity(BaseViewActivity::class.java, false) }
         tab_view_pager.setOnClickListener { jump2Activity(TabLayoutActivity::class.java, false) }
         tab_data_store.setOnClickListener { jump2Activity(DataStoreActivity::class.java, false) }
+
+        tab_object_box.setOnClickListener { jump2Activity(ObjectBoxActivity::class.java, false) }
         tab_recycler.setOnClickListener {
             jump2Activity(
                 SimpleNormalRecyclerViewActivity::class.java,
@@ -64,8 +66,6 @@ class MainActivity : BaseActivity() {
             val mIntent = Intent(this@MainActivity, MainActivity::class.java)
             startActivity(mIntent)
         }
-
-
     }
 
     override fun initView() {

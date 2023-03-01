@@ -40,10 +40,8 @@
 
 #### 更新日志
 ##### V1.23.0
+- 1、key-value的存储方案改为DataStore
 
-
-##### V1.22.10
-- 1、替换key-value存储方案为微信开源的MMKV，使用参照 com.hh.baselibrary.util.MMKVUtil
 
 ##### V1.22.9
 - 1、树状目录增加一些常用功能
