@@ -9,7 +9,7 @@ import com.hh.baselibrary.util.common.RecyclerViewItemClickListener
 /**
  * Create By hHui on 2022/5/9 0009 下午 15:16
  */
-abstract class MBaseAdapter<T>(var list: List<T>) : RecyclerView.Adapter<MBaseAdapter<T>.MBaseViewHolder>() {
+abstract class MBaseAdapter<T>(var list: MutableList<T>) : RecyclerView.Adapter<MBaseAdapter<T>.MBaseViewHolder>() {
     var recyclerViewItemClickListener: RecyclerViewItemClickListener<T>? = null
 
     var recyclerItemElementClickListener: RecyclerItemElementClickListener<T>? = null

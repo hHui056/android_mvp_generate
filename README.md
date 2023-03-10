@@ -41,6 +41,7 @@
 #### 更新日志
 ##### V1.23.0
 - 1、key-value的存储方案改为DataStore
+- 2、NormalRecyclerView添加增加一项和移除一项的方法
 
 
 ##### V1.22.9

@@ -99,12 +99,28 @@ class NormalRecyclerView<T> : RelativeLayout {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun refreshAll(list: List<T>) {
+    fun refreshAll(list: MutableList<T>) {
         adapter.list = list
         adapter.notifyDataSetChanged()
 
         m_recycler.visibility = if (list.isEmpty()) View.GONE else View.VISIBLE
         this.noDataView?.visibility = if (list.isEmpty()) View.VISIBLE else View.GONE
+    }
+
+    /**
+     * 增加一项
+     */
+    fun addItem(item: T) {
+        adapter.list.add(item)
+        adapter.notifyItemInserted(adapter.list.size - 1)
+    }
+
+    /**
+     * 移除一项
+     */
+    fun removeAt(position: Int) {
+        adapter.list.removeAt(position)
+        adapter.notifyItemRemoved(position)
     }
 
     fun addElementClickListener(listener: RecyclerItemElementClickListener<T>, vararg ids: Int) {
